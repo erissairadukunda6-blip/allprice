@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FRW Market | Puma Shoes</title>
+
+<style>
+:root{
+  --primary:#ff6a00;
+  --dark:#1f2937;
+  --gray:#6b7280;
+  --bg:#f9fafb;
+  --wa:#25D366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--dark)}
+
+header{
+  background:#fff;
+  padding:16px 24px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.back-link{
+  text-decoration:none;
+  color:var(--primary);
+  font-weight:900;
+  font-size:1.1rem;
+}
+.logo{font-size:2rem;font-weight:900;color:var(--primary)}
+.nav{display:flex;gap:12px;flex-wrap:wrap}
+.select-box{
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:10px 14px;
+  font-weight:800;
+  background:#fff;
+  cursor:pointer
+}
+.wa-btn{
+  margin-left:auto;
+  background:var(--wa);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none
+}
+
+/* TRENDING */
+.trending{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 24px
+}
+.trending-title{
+  font-size:2.2rem;
+  font-weight:900;
+  margin-bottom:20px;
+  display:flex;
+  gap:10px;
+  align-items:center
+}
+.badge{
+  background:var(--primary);
+  color:#fff;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:800
+}
+.search-box{
+  margin-bottom:30px;
+}
+.search-box input{
+  width:100%;
+  padding:12px 16px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:1rem
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:24px
+}
+.card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.1)
+}
+.card img{width:100%;height:240px;object-fit:cover}
+.tag{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:#000;
+  color:#fff;
+  padding:6px 12px;
+  font-size:.75rem;
+  font-weight:900;
+  border-radius:10px
+}
+.card-body{padding:16px}
+.title{font-weight:900;font-size:1.1rem}
+.price{font-size:1.6rem;font-weight:900;color:var(--primary)}
+.price span{font-size:.85rem;color:#9ca3af}
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px
+}
+.details{
+  flex:1;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800
+}
+.whatsapp{
+  flex:1;
+  text-align:center;
+  border:1px solid var(--wa);
+  background:#ecfdf5;
+  color:#16a34a;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none
+}
+footer{
+  text-align:center;
+  padding:30px;
+  color:#9ca3af;
+  font-weight:600
+}
+</style>
+
+<script>
+function go(link){if(link) window.location.href = link;}
+function searchProducts(){
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const products = document.querySelectorAll(".grid .card");
+  products.forEach(product => {
+    const title = product.querySelector(".title").innerText.toLowerCase();
+    const category = product.dataset.category ? product.dataset.category.toLowerCase() : '';
+    const brand = product.dataset.brand ? product.dataset.brand.toLowerCase() : '';
+    if(title.includes(input) || category.includes(input) || brand.includes(input)){
+      product.style.display="block";
+    } else {product.style.display="none";}
+  });
+}
+</script>
+</head>
+
+<body>
+
+<header>
+  
+  <div class="logo">FRW Market</div>
+
+  <div class="nav">
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Shoes</option>
+      <option value="shoes-nike.html">Nike</option>
+      <option value="shoes-jordan.html">Jordan</option>
+      <option value="shoes-puma.html" selected>Puma</option>
+      <option value="shoes-balenciaga.html">baleciaga</option>
+       <option value="shoes-new balance.html">New Balance</option>
+       <option value="shoes-open.html">open</option>
+       <option value="shoes-adidas.html">Adidas</option>
+      <option value="shoes-vans.html">Vans</option>
+      <option value="shoes-others.html">Others</option>
+    </select>
+  </div>
+<a href="index.html" class="back-link">&larr; Back</a>
+  <a class="wa-btn" href="https://wa.me/250795555219?text=Hello%20FRW%20Market,%20I%20want%20Puma%20Shoes" target="_blank">
+    WhatsApp 0795555219
+  </a>
+</header>
+
+<section class="trending">
+  <div class="trending-title">
+    🔥 Puma Shoes
+    <span class="badge">Top Picks</span>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search Puma shoes...">
+  </div>
+
+  <div class="grid">
+
+    <!-- 10 Puma products -->
+
+    <div class="card shoes puma" data-category="shoes" data-brand="puma">
+      <span class="tag">PUMA</span>
+      <img src="shoes/puma/PUMA-x-HYROX-Velocity-NITRO™-4-Women's-Running-Shoes.avif">
+      <div class="card-body">
+        <div class="title">PUMA-x-HYROX-Velocity</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Puma%20Running%20Shoe%201%2065,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes puma" data-category="shoes" data-brand="puma">
+      <span class="tag">PUMA</span>
+      <img src="shoes/puma/Speedcat-OG-Big-Kids'-Sneaker.avif">
+      <div class="card-body">
+        <div class="title">puma-Speedcat-OG</div>
+        <div class="price">28,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Puma%20Running%20Shoe%202%2070,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes puma" data-category="shoes" data-brand="puma">
+      <span class="tag">PUMA</span>
+      <img src="shoes/puma/Speedcat-OG-Big-Kids'-Sneakers.avif">
+      <div class="card-body">
+        <div class="title">Puma-Speedcat-OG-Big-Kids'</div>
+        <div class="price">30,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Puma%20Running%20Shoe%203%2075,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes puma" data-category="shoes" data-brand="puma">
+      <span class="tag">PUMA</span>
+      <img src="shoes/puma/Suede-Classic-Sneakers (1).avif">
+      <div class="card-body">
+        <div class="title">Puma Suede-Classic-Sneakers </div>
+        <div class="price">28,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Puma%20Running%20Shoe%204%2080,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes puma" data-category="shoes" data-brand="puma">
+      <span class="tag">PUMA</span>
+      <img src="shoes/puma/Suede-Classic-Sneakers.avif">
+      <div class="card-body">
+        <div class="title">Puma Suede-Classic-Sneakers.avif</div>
+        <div class="price">30,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Puma%20Running%20Shoe%205%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 FRW Market • Puma Shoes • WhatsApp: 0795555219
+</footer>
+
+</body>
+</html>

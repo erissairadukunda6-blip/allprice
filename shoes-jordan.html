@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FRW Market | Jordan Shoes</title>
+
+<style>
+:root{
+  --primary:#ff6a00;
+  --dark:#1f2937;
+  --gray:#6b7280;
+  --bg:#f9fafb;
+  --wa:#25D366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--dark)}
+
+header{
+  background:#fff;
+  padding:16px 24px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+.back-link{
+  text-decoration:none;
+  color:var(--primary);
+  font-weight:900;
+  font-size:1.1rem;
+}
+.logo{font-size:2rem;font-weight:900;color:var(--primary)}
+.nav{display:flex;gap:12px;flex-wrap:wrap}
+.select-box{
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:10px 14px;
+  font-weight:800;
+  background:#fff;
+  cursor:pointer
+}
+.wa-btn{
+  margin-left:auto;
+  background:var(--wa);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none
+}
+
+/* TRENDING */
+.trending{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 24px
+}
+.trending-title{
+  font-size:2.2rem;
+  font-weight:900;
+  margin-bottom:20px;
+  display:flex;
+  gap:10px;
+  align-items:center
+}
+.badge{
+  background:var(--primary);
+  color:#fff;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:800
+}
+.search-box{
+  margin-bottom:30px;
+}
+.search-box input{
+  width:100%;
+  padding:12px 16px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:1rem
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:24px
+}
+.card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.1)
+}
+.card img{width:100%;height:240px;object-fit:cover}
+.tag{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:#000;
+  color:#fff;
+  padding:6px 12px;
+  font-size:.75rem;
+  font-weight:900;
+  border-radius:10px
+}
+.card-body{padding:16px}
+.title{font-weight:900;font-size:1.1rem}
+.price{font-size:1.6rem;font-weight:900;color:var(--primary)}
+.price span{font-size:.85rem;color:#9ca3af}
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px
+}
+.details{
+  flex:1;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800
+}
+.whatsapp{
+  flex:1;
+  text-align:center;
+  border:1px solid var(--wa);
+  background:#ecfdf5;
+  color:#16a34a;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none
+}
+footer{
+  text-align:center;
+  padding:30px;
+  color:#9ca3af;
+  font-weight:600
+}
+</style>
+
+<script>
+function go(link){if(link) window.location.href = link;}
+
+function searchProducts(){
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const products = document.querySelectorAll(".grid .card");
+
+  products.forEach(product => {
+    const title = product.querySelector(".title").innerText.toLowerCase();
+    const category = product.dataset.category ? product.dataset.category.toLowerCase() : '';
+    const brand = product.dataset.brand ? product.dataset.brand.toLowerCase() : '';
+
+    if(title.includes(input) || category.includes(input) || brand.includes(input)){
+      product.style.display="block";
+    } else {product.style.display="none";}
+  });
+}
+</script>
+</head>
+
+<body>
+
+<header>
+  
+  <div class="logo">FRW Market</div>
+
+  <div class="nav">
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Shoes</option>
+      <option value="shoes-nike.html">Nike</option>
+      <option value="shoes-jordan.html" selected>Jordan</option>
+      <option value="shoes-adidas.html">Adidas</option>
+      <option value="shoes-puma.html">Puma</option>
+      <option value="shoes-open.html">open</option>
+      <option value="shoes-vans.html">Vans</option>
+      <option value="shoes-balenciaga.html">balenciaga</option>
+       <option value="shoes-new balance.html">New Balance</option>
+      <option value="shoes-others.html">Others</option>
+    </select>
+  </div>
+<a href="index.html" class="back-link">&larr; Back</a>
+  <a class="wa-btn" href="https://wa.me/250795555219?text=Hello%20FRW%20Market,%20I%20want%20Jordan%20Shoes" target="_blank">
+    WhatsApp 0795555219
+  </a>
+</header>
+
+<section class="trending">
+  <div class="trending-title">
+    🔥 Jordan Shoes
+    <span class="badge">Top Picks</span>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search Jordan shoes...">
+  </div>
+
+  <div class="grid">
+
+    <!-- Product 1 -->
+    <div class="card shoes jordan" data-category="shoes" data-brand="jordan">
+      <span class="tag">JORDAN</span>
+      <img src="shoes/jordan/AIR+JORDAN+1+LOW.avif">
+      <div class="card-body">
+        <div class="title">AIR JORDAN+1+LOW</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Jordan%20Retro%201%2095,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="card shoes jordan" data-category="shoes" data-brand="jordan">
+      <span class="tag">JORDAN</span>
+      <img src="shoes/jordan/AIR+JORDAN+1+LOW+SE.avif">
+      <div class="card-body">
+        <div class="title">AIR JORDAN1+LOW+SE.</div>
+        <div class="price">22,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Jordan%20Retro%204%20105,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="card shoes jordan" data-category="shoes" data-brand="jordan">
+      <span class="tag">JORDAN</span>
+      <img src="shoes/jordan/AIR+JORDAN+1+MID.avif">
+      <div class="card-body">
+        <div class="title">JAIR JORDAN1+MID</div>
+        <div class="price">20,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Jordan%20Retro%205%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="card shoes jordan" data-category="shoes" data-brand="jordan">
+      <span class="tag">JORDAN</span>
+      <img src="shoes/jordan/AIR+JORDAN+1+MID+SE+(GS).avif">
+      <div class="card-body">
+        <div class="title">AIR JORDAN1+MID+SE+(GS)</div>
+        <div class="price">28,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Jordan%20Retro%206%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 1 -->
+    <div class="card shoes jordan" data-category="shoes" data-brand="jordan">
+      <span class="tag">JORDAN</span>
+      <img src="shoes/jordan/AIR+JORDAN+4+RM+(GS).avif">
+      <div class="card-body">
+        <div class="title">AIR JORDAN 4+RM+(GS)</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Jordan%20Retro%201%2095,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="card shoes jordan" data-category="shoes" data-brand="jordan">
+      <span class="tag">JORDAN</span>
+      <img src="shoes/jordan/AIR+JORDAN+6+RETRO.avif">
+      <div class="card-body">
+        <div class="title">AIR jORDAN 6+RETRO.</div>
+        <div class="price">22,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Jordan%20Retro%204%20105,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="card shoes jordan" data-category="shoes" data-brand="jordan">
+      <span class="tag">JORDAN</span>
+      <img src="shoes/jordan/AIR+JORDAN+8+RETRO+(GS).avif">
+      <div class="card-body">
+        <div class="title">AIR JORDAN 8+RETRO+(GS).avif</div>
+        <div class="price">27,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Jordan%20Retro%205%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="card shoes jordan" data-category="shoes" data-brand="jordan">
+      <span class="tag">JORDAN</span>
+      <img src="shoes/jordan/air-jordan-3-retro-big-kids-shoes-9WY87grt.avif">
+      <div class="card-body">
+        <div class="title">air jordan3-retro-big-kids-shoes-9WY87grt.</div>
+        <div class="price">26,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Jordan%20Retro%206%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Product 1 -->
+    <div class="card shoes jordan" data-category="shoes" data-brand="jordan">
+      <span class="tag">JORDAN</span>
+      <img src="shoes/jordan/air-jordan-4-retro-flight-club-mens-shoes-PlqxvPPn.avif">
+      <div class="card-body">
+        <div class="title">air jordan4-retro-flight-club-mens-shoes-PlqxvPPn-</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Jordan%20Retro%201%2095,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="card shoes jordan" data-category="shoes" data-brand="jordan">
+      <span class="tag">JORDAN</span>
+      <img src="shoes/jordan/air-jordan-9-retro-flint-grey-and-french-blue-mens-shoes-aUlCK7lz.avif">
+      <div class="card-body">
+        <div class="title">air jordan9-retro-flint</div>
+        <div class="price">28,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Jordan%20Retro%204%20105,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="card shoes jordan" data-category="shoes" data-brand="jordan">
+      <span class="tag">JORDAN</span>
+      <img src="shoes/jordan/WMNS+AIR+JORDAN+1+LOW+SE.avif">
+      <div class="card-body">
+        <div class="title">WMNS AIR JORDAN1+LOW+SE</div>
+        <div class="price">20,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Jordan%20Retro%205%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="card shoes jordan" data-category="shoes" data-brand="jordan">
+      <span class="tag">JORDAN</span>
+      <img src="shoes/jordan/WMNS+JORDAN+TRUNNER+LX.avif">
+      <div class="card-body">
+        <div class="title">JWMNS+JORDAN+TRUNNER+LX.avif</div>
+        <div class="price">30,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Jordan%20Retro%206%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Continue products 5–20 similarly -->
+  </div>
+</section>
+
+<footer>
+  © 2026 FRW Market • Jordan Shoes • WhatsApp: 0795555219
+</footer>
+
+</body>
+</html>

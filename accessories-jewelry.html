@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FRW Market | Jewelry</title>
+
+<style>
+:root{
+  --primary:#ff6a00;
+  --dark:#1f2937;
+  --gray:#6b7280;
+  --bg:#f9fafb;
+  --wa:#25D366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--dark)}
+
+header{
+  background:#fff;
+  padding:16px 24px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap
+}
+.logo{font-size:2rem;font-weight:900;color:var(--primary)}
+
+.nav{display:flex;gap:12px;flex-wrap:wrap}
+.select-box{
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:10px 14px;
+  font-weight:800;
+  background:#fff;
+  cursor:pointer
+}
+
+.wa-btn{
+  margin-left:auto;
+  background:var(--wa);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none
+}
+
+.trending{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 24px
+}
+.trending-title{
+  font-size:2.2rem;
+  font-weight:900;
+  margin-bottom:20px;
+  display:flex;
+  gap:10px;
+  align-items:center
+}
+.badge{
+  background:var(--primary);
+  color:#fff;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:800
+}
+
+.back-link {margin:20px 0;}
+.back-link a{
+  text-decoration:none;
+  color:var(--primary);
+  font-weight:800;
+  background:#fff;
+  padding:8px 14px;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+.back-link a:hover{
+  background:var(--primary);
+  color:#fff;
+}
+
+.search-box{margin-bottom:30px;}
+.search-box input{
+  width:100%;
+  padding:12px 16px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:1rem
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:24px
+}
+.card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.1);
+  position:relative;
+}
+.card img{width:100%;height:240px;object-fit:cover}
+
+.tag{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:#000;
+  color:#fff;
+  padding:6px 12px;
+  font-size:.75rem;
+  font-weight:900;
+  border-radius:10px
+}
+
+.card-body{padding:16px}
+.title{font-weight:900;font-size:1.1rem}
+.price{font-size:1.6rem;font-weight:900;color:var(--primary)}
+.price span{font-size:.85rem;color:#9ca3af}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px
+}
+.details{
+  flex:1;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  cursor:pointer;
+}
+.whatsapp{
+  flex:1;
+  text-align:center;
+  border:1px solid var(--wa);
+  background:#ecfdf5;
+  color:#16a34a;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#9ca3af;
+  font-weight:600
+}
+</style>
+
+<script>
+function go(link){if(link) window.location.href = link;}
+
+function searchProducts(){
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const products = document.querySelectorAll(".grid .card");
+
+  products.forEach(product => {
+    const title = product.querySelector(".title").innerText.toLowerCase();
+    if(title.includes(input)){
+      product.style.display="block";
+    } else {product.style.display="none";}
+  });
+}
+</script>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">FRW Market</div>
+
+  <div class="nav">
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Accessories</option>
+      <option value="accessories-watches.html">Watches</option>
+      <option value="accessories-bags.html">Bags</option>
+      <option value="accessories-belts.html">Belts</option>
+      <option value="accessories-rings.html">Rings</option>
+      <option value="accessories-glasses.html">Glasses</option>
+      <option value="accessories-hats.html">Hats</option>
+      <option value="accessories-jewelry.html" selected>Jewelry</option>
+    </select>
+  </div>
+
+  <a class="wa-btn"
+     href="https://wa.me/250795555219?text=Hello%20FRW%20Market,%20I%20want%20to%20order%20jewelry"
+     target="_blank">
+     WhatsApp 0795555219
+  </a>
+</header>
+
+<section class="trending">
+  <div class="trending-title">
+    💍 Jewelry Collection
+    <span class="badge">Premium</span>
+  </div>
+
+  <div class="back-link">
+    <a href="index.html">← Back to Home</a>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search jewelry...">
+  </div>
+
+  <div class="grid">
+
+    <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/3ebe49c5101e552bc8bf1dcf012afab1.jpg">
+      <div class="card-body">
+        <div class="title">silver ling</div>
+        <div class="price">10,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Gold%20Necklace%2045,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/05d42813fb40923a1c687289497762bc.jpg">
+      <div class="card-body">
+        <div class="title">gold neckles</div>
+        <div class="price">4,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Diamond%20Ring%2060,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/5a7f2420ee0c1fe5aa4036eaf0a082c9.jpg">
+      <div class="card-body">
+        <div class="title">Luxury Bracelet (FULL BOX)</div>
+        <div class="price">35,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Luxury%20Bracelet%2035,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+
+
+
+   <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/17f0600610f309a515511a3b96115f1a.jpg">
+      <div class="card-body">
+        <div class="title">GOLD ling</div>
+        <div class="price">6,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Gold%20Necklace%2045,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/beautiful-luxury-necklace-jewelry-stand-neck_1339-7946.avif">
+      <div class="card-body">
+        <div class="title">silver neckles</div>
+        <div class="price">12,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Diamond%20Ring%2060,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/c0be9752ca0ead0a40c1b0a9e83c41f5.jpg">
+      <div class="card-body">
+        <div class="title">Luxury Bracelet </div>
+        <div class="price">20,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Luxury%20Bracelet%2035,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+   <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/e6552e2970eabb2ed8adf20ef8e503bf.jpg">
+      <div class="card-body">
+        <div class="title">silver armlace</div>
+        <div class="price">4,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Gold%20Necklace%2045,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/f874aa78b7915b4ce41710a4c824df2f.jpg">
+      <div class="card-body">
+        <div class="title">diamond heart</div>
+        <div class="price">80,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Diamond%20Ring%2060,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/febd82ac75cdde52f6793d256b697e19.jpg">
+      <div class="card-body">
+        <div class="title">Luxury Bracelet (FULL BOX)</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Luxury%20Bracelet%2035,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+   <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/photo-1543294001-f7cd5d7fb516.AVIF">
+      <div class="card-body">
+        <div class="title">3GEZ ling</div>
+        <div class="price">30,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Gold%20Necklace%2045,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/photo-1585960622850-ed33c41d6418.AVIF">
+      <div class="card-body">
+        <div class="title">gold neckles</div>
+        <div class="price">6,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Diamond%20Ring%2060,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/photo-1599643478518-a784e5dc4c8f.avif">
+      <div class="card-body">
+        <div class="title">Luxury Bracelet necklace </div>
+        <div class="price">15,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Luxury%20Bracelet%2035,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+   <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/premium_photo-1681276170281-cf50a487a1b7.avif">
+      <div class="card-body">
+        <div class="title">gold (full)</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Gold%20Necklace%2045,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/premium_photo-1681276170092-446cd1b5b32d.avif">
+      <div class="card-body">
+        <div class="title">gold neckles prenium</div>
+        <div class="price">14,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Diamond%20Ring%2060,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories jewelry">
+      <span class="tag">JEWELRY</span>
+      <img src="accessories/jew/premium_photo-1709033404514-c3953af680b4.avif">
+      <div class="card-body">
+        <div class="title">Luxury Bracelet (one in this)</div>
+        <div class="price">3,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Luxury%20Bracelet%2035,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+
+<footer>
+  © 2026 FRW Market • WhatsApp: 0795555219
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FRW Market | iPhone</title>
+<style>
+:root {
+  --primary: #ff6a00;
+  --dark: #1f2937;
+  --gray: #6b7280;
+  --bg: #f9fafb;
+  --wa: #25D366;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--dark); }
+
+header {
+  background: #fff;
+  padding: 16px 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.back-link {
+  color: var(--primary);
+  font-weight: 900;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.logo { font-size: 2rem; font-weight: 900; color: var(--primary); }
+
+.nav { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.select-box {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 800;
+  background: #fff;
+  cursor: pointer;
+}
+
+.wa-btn {
+  margin-left: auto;
+  background: var(--wa);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+/* Trending / Product Grid */
+.trending {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 24px;
+}
+
+.trending-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.badge {
+  background: var(--primary);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 800;
+}
+
+.search-box { margin-bottom: 30px; }
+.search-box input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.1);
+  position: relative;
+}
+
+.card img { width: 100%; height: 240px; object-fit: cover; }
+
+.tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #000;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: .75rem;
+  font-weight: 900;
+  border-radius: 10px;
+}
+
+.card-body { padding: 16px; }
+.title { font-weight: 900; font-size: 1.1rem; }
+.price { font-size: 1.6rem; font-weight: 900; color: var(--primary); }
+.price span { font-size: .85rem; color: #9ca3af; }
+
+.actions { display: flex; gap: 10px; margin-top: 14px; }
+
+.details {
+  flex: 1;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+.whatsapp {
+  flex: 1;
+  text-align: center;
+  border: 1px solid var(--wa);
+  background: #ecfdf5;
+  color: #16a34a;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+</style>
+<script>
+function go(link) { if(link) window.location.href = link; }
+function searchProducts() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const products = document.querySelectorAll(".grid .card");
+  products.forEach(product => {
+    const title = product.querySelector(".title").innerText.toLowerCase();
+    if(title.includes(input)) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+</script>
+</head>
+<body>
+
+<header>
+  
+  <div class="logo">FRW Market</div>
+  <div class="nav">
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Phones</option>
+      <option value="phones-samsung.html">Samsung</option>
+      <option value="phones-iphone.html" selected>iPhone</option>
+      <option value="phones-tecno.html">Tecno</option>
+      <option value="phones-infinix.html">Infinix</option>
+      <option value="phones-others.html">Others</option>
+    </select>
+  </div>
+  <a href="index.html" class="back-link">&larr; Back</a>
+  <a class="wa-btn" href="https://wa.me/250795555219?text=Hello%20FRW%20Market,%20I%20want%20iPhone" target="_blank">WhatsApp 0795555219</a>
+</header>
+
+<section class="trending">
+  <div class="trending-title">🍏 iPhone Collection <span class="badge">Hot Deals</span></div>
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search iPhones...">
+  </div>
+
+  <div class="grid">
+    <!-- Example iPhone Products -->
+    <div class="card phones iphone">
+      <span class="tag">iPHONE</span>
+      <img src="phone/iphone/iphone-card-40-17pro-202509.jpg">
+      <div class="card-body">
+        <div class="title">iPhone 17 pro</div>
+        <div class="price">3,030,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=iPhone%2013%20Pro%20450,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card phones iphone">
+      <span class="tag">iPHONE</span>
+      <img src="phone/iphone/images.jpg">
+      <div class="card-body">
+        <div class="title">iPhone 16</div>
+        <div class="price">1,800,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=iPhone%2013%20400,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card phones iphone">
+      <span class="tag">iPHONE 16 pro</span>
+      <img src="phone/iphone/iphone-card-40-16plus-202509.jpg">
+      <div class="card-body">
+        <div class="title">iPhone 16 pro</div>
+        <div class="price">2,000,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=iPhone%2012%20350,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card phones iphone">
+      <span class="tag">iPHONE 16 pro max</span>
+      <img src="phone/iphone/2025-01-18T18_00_57.895Z.jpg">
+      <div class="card-body">
+        <div class="title">iPhone 16 pro max</div>
+        <div class="price">2,864,400 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=iPhone%20SE%202022%20300,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+<div class="card phones iphone">
+      <span class="tag">iPHONE 14</span>
+      <img src="phone/iphone/images (2).jpg">
+      <div class="card-body">
+        <div class="title">iPhone 14</div>
+        <div class="price">1,000,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=iPhone%20SE%202022%20300,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+<div class="card phones iphone">
+      <span class="tag">iPHONE 11</span>
+      <img src="phone/iphone/images (3).jpg">
+      <div class="card-body">
+        <div class="title">iPhone 11</div>
+        <div class="price">450,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=iPhone%20SE%202022%20300,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+<div class="card phones iphone">
+      <span class="tag">iPHONE 11 pro</span>
+      <img src="phone/iphone/images (4).jpg">
+      <div class="card-body">
+        <div class="title">iPhone 11 pro</div>
+        <div class="price">550,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=iPhone%20SE%202022%20300,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+<div class="card phones iphone">
+      <span class="tag">iPHONE x</span>
+      <img src="phone/iphone/iPhone-X-Silver.jpg">
+      <div class="card-body">
+        <div class="title">iPhone x</div>
+        <div class="price">390,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=iPhone%20SE%202022%20300,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="card phones iphone">
+      <span class="tag">iPHONE xs</span>
+      <img src="phone/iphone/images (5).jpg">
+      <div class="card-body">
+        <div class="title">iPhone xs</div>
+        <div class="price">430,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=iPhone%20SE%202022%20300,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+<div class="card phones iphone">
+      <span class="tag">iPHONE xs max</span>
+      <img src="phone/iphone/ekmn2aSBgMn9hL99jPa3Jc.jpg">
+      <div class="card-body">
+        <div class="title">iPhone xs max</div>
+        <div class="price">450,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=iPhone%20SE%202022%20300,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+<div class="card phones iphone">
+      <span class="tag">iPHONE 12 mini</span>
+      <img src="phone/iphone/images (1).jpg">
+      <div class="card-body">
+        <div class="title">iPhone 12 mini</div>
+        <div class="price">550,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=iPhone%20SE%202022%20300,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="card phones iphone">
+      <span class="tag">iPHONE 14 pro</span>
+      <img src="phone/iphone/2023-02-04T18_32_04.431Z.jpg">
+      <div class="card-body">
+        <div class="title">iPhone 14 pro</div>
+        <div class="price">1,842,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=iPhone%20SE%202022%20300,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="card phones iphone">
+      <span class="tag">iPHONE 14 pro max</span>
+      <img src="phone/iphone/2023-04-10T11_51_49.421Z.jpg">
+      <div class="card-body">
+        <div class="title">iPhone 14 pro max</div>
+        <div class="price">2,046,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=iPhone%20SE%202022%20300,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <!-- Add more iPhones up to 10+ -->
+  </div>
+</section>
+
+<footer>© 2026 FRW Market • WhatsApp: 0795555219</footer>
+
+</body>
+</html>

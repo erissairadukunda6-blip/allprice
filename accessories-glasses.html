@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FRW Market | Glasses</title>
+
+<style>
+:root{
+  --primary:#ff6a00;
+  --dark:#1f2937;
+  --gray:#6b7280;
+  --bg:#f9fafb;
+  --wa:#25D366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--dark)}
+
+header{
+  background:#fff;
+  padding:16px 24px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap
+}
+.logo{font-size:2rem;font-weight:900;color:var(--primary)}
+
+.nav{display:flex;gap:12px;flex-wrap:wrap}
+.select-box{
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:10px 14px;
+  font-weight:800;
+  background:#fff;
+  cursor:pointer
+}
+
+.wa-btn{
+  margin-left:auto;
+  background:var(--wa);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none
+}
+
+.trending{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 24px
+}
+.trending-title{
+  font-size:2.2rem;
+  font-weight:900;
+  margin-bottom:20px;
+  display:flex;
+  gap:10px;
+  align-items:center
+}
+.badge{
+  background:var(--primary);
+  color:#fff;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:800
+}
+
+.back-link {margin:20px 0;}
+.back-link a{
+  text-decoration:none;
+  color:var(--primary);
+  font-weight:800;
+  background:#fff;
+  padding:8px 14px;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+.back-link a:hover{
+  background:var(--primary);
+  color:#fff;
+}
+
+.search-box{margin-bottom:30px;}
+.search-box input{
+  width:100%;
+  padding:12px 16px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:1rem
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:24px
+}
+.card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.1);
+  position:relative;
+}
+.card img{width:100%;height:240px;object-fit:cover}
+
+.tag{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:#000;
+  color:#fff;
+  padding:6px 12px;
+  font-size:.75rem;
+  font-weight:900;
+  border-radius:10px
+}
+
+.card-body{padding:16px}
+.title{font-weight:900;font-size:1.1rem}
+.price{font-size:1.6rem;font-weight:900;color:var(--primary)}
+.price span{font-size:.85rem;color:#9ca3af}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px
+}
+.details{
+  flex:1;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  cursor:pointer;
+}
+.whatsapp{
+  flex:1;
+  text-align:center;
+  border:1px solid var(--wa);
+  background:#ecfdf5;
+  color:#16a34a;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#9ca3af;
+  font-weight:600
+}
+</style>
+
+<script>
+function go(link){if(link) window.location.href = link;}
+
+function searchProducts(){
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const products = document.querySelectorAll(".grid .card");
+
+  products.forEach(product => {
+    const title = product.querySelector(".title").innerText.toLowerCase();
+    product.style.display = title.includes(input) ? "block" : "none";
+  });
+}
+</script>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">FRW Market</div>
+
+  <div class="nav">
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Accessories</option>
+      <option value="accessories-watches.html">Watches</option>
+      <option value="accessories-rings.html">Rings</option>
+      <option value="accessories-bags.html">Bags</option>
+      <option value="accessories-belts.html">Belts</option>
+      <option value="accessories-glasses.html" selected>Glasses</option>
+      <option value="accessories-jewelry.html">Jewelry</option>
+    </select>
+  </div>
+
+  <a class="wa-btn"
+     href="https://wa.me/250795555219?text=Hello%20FRW%20Market,%20I%20want%20to%20order%20glasses"
+     target="_blank">
+     WhatsApp 0795555219
+  </a>
+</header>
+
+<section class="trending">
+  <div class="trending-title">
+    🕶 Glasses Collection
+    <span class="badge">Trending</span>
+  </div>
+
+  <div class="back-link">
+    <a href="index.html">← Back to Home</a>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search glasses...">
+  </div>
+
+  <div class="grid">
+    <!-- 15 Glasses Products -->
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/1b586b512c37105eaefacec59d721589.jpg">
+      <div class="card-body">
+        <div class="title">Classic Black Sunglasses</div>
+        <div class="price">20,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Classic%20Black%20Sunglasses%2020,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/4d91bc200aaf7306c93c7746be47186b.jpg">
+      <div class="card-body">
+        <div class="title">Luxury Gold Frame Glasses</div>
+        <div class="price">12,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Luxury%20Gold%20Frame%20Glasses%2028,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/4d944844ac579d2fab4152237197a41d.jpg">
+      <div class="card-body">
+        <div class="title">Modern Transparent Frame</div>
+        <div class="price">18,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Modern%20Transparent%20Frame%2018,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional 12 Products -->
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/06f2eb1617e33af16b34248ba84ac48e.jpg">
+      <div class="card-body">
+        <div class="title">Retro Round Glasses</div>
+        <div class="price">15,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Retro%20Round%20Glasses%2022,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/6df840b6450c40baded62f4827209426.jpg">
+      <div class="card-body">
+        <div class="title">Aviator Sunglasses</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Aviator%20Sunglasses%2025,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/8b8cedb8d65b601a0014fb8c9b4ce223.jpg">
+      <div class="card-body">
+        <div class="title">Square Black Glasses</div>
+        <div class="price">8,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Square%20Black%20Glasses%2021,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/9cfbe9a2b164e6efe2f93a03d2b9cd00.jpg">
+      <div class="card-body">
+        <div class="title">Cat Eye Glasses</div>
+        <div class="price">4,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Cat%20Eye%20Glasses%2026,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/27a0ae93e9ba007fdb51cb421613e289.jpg">
+      <div class="card-body">
+        <div class="title">Blue Light Blocking Glasses</div>
+        <div class="price">18,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Blue%20Light%20Blocking%20Glasses%2017,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/43ebb98860a87647becf68a85751c63c.jpg">
+      <div class="card-body">
+        <div class="title">Thin Metal Frame Glasses</div>
+        <div class="price">5,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Thin%20Metal%20Frame%2019,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/430b55b92569a4616ebab76d874cd4e4.jpg">
+      <div class="card-body">
+        <div class="title">Fashionable Tinted Glasses</div>
+        <div class="price">10,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Fashionable%20Tinted%20Glasses%2023,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/693b60be2070c1acbefdf0db1fd4fb65.jpg">
+      <div class="card-body">
+        <div class="title">Round Vintage Glasses</div>
+        <div class="price">20,500 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Round%20Vintage%20Glasses%2020,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/968fffd4298fed6aa20fca34687b4279.jpg">
+      <div class="card-body">
+        <div class="title">Oversized Fashion Glasses</div>
+        <div class="price">27,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Oversized%20Fashion%20Glasses%2027,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/7154d84772b022609c60be642ea798db.jpg">
+      <div class="card-body">
+        <div class="title">Classic Brown Frame</div>
+        <div class="price">2,500 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Classic%20Brown%20Frame%2021,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/22196e259f4472406c110728faa7d387.jpg">
+      <div class="card-body">
+        <div class="title">Gradient Lens Glasses</div>
+        <div class="price">4,500 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Gradient%20Lens%20Glasses%2022,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/65699f6dbeb2e97674846fa547274b89.jpg">
+      <div class="card-body">
+        <div class="title">Trendy Round Frame</div>
+        <div class="price">24,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Trendy%20Round%20Frame%2024,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/896689f0dc7e49cae8fb5813d779593a.jpg">
+      <div class="card-body">
+        <div class="title">Fashionable Tinted Glasses</div>
+        <div class="price">4,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Fashionable%20Tinted%20Glasses%2023,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/47584707d7046b1be1ae9c8ea30b3056.jpg">
+      <div class="card-body">
+        <div class="title">Round Vintage Glasses</div>
+        <div class="price">14,500 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Round%20Vintage%20Glasses%2020,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/a9205108745e178c46e9111f0a3330ad.jpg">
+      <div class="card-body">
+        <div class="title">Oversized Fashion Glasses</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Oversized%20Fashion%20Glasses%2027,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/b9387f74d7bfe6b723ca6c078e625e59.jpg">
+      <div class="card-body">
+        <div class="title">Classic Brown Frame</div>
+        <div class="price">8,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Classic%20Brown%20Frame%2021,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/cb4766af88926c7d6c49a9f4c8c7f2fe.jpg">
+      <div class="card-body">
+        <div class="title">Gradient Lens Glasses</div>
+        <div class="price">21,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Gradient%20Lens%20Glasses%2022,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/ebb75770d4c9a05f52115b58db67dfef.jpg">
+      <div class="card-body">
+        <div class="title">Trendy Round Frame</div>
+        <div class="price">18,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Trendy%20Round%20Frame%2024,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/edcd36df09aae18f1f67f191968a2e2a.jpg">
+      <div class="card-body">
+        <div class="title">Classic Brown Frame</div>
+        <div class="price">15,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Classic%20Brown%20Frame%2021,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/dd.avif">
+      <div class="card-body">
+        <div class="title">Gradient Lens Glasses</div>
+        <div class="price">40,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Gradient%20Lens%20Glasses%2022,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/photo-1511499767150-a48a237f0083.avif">
+      <div class="card-body">
+        <div class="title">Trendy Round Frame</div>
+        <div class="price">10,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Trendy%20Round%20Frame%2024,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+
+  <div class="card accessories glasses">
+      <span class="tag">GLASSES</span>
+      <img src="accessories/glass/premium_photo-1661319134179-50e9552b63c0.avif">
+      <div class="card-body">
+        <div class="title">eyes lens Frame</div>
+        <div class="price">60,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Trendy%20Round%20Frame%2024,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<footer>
+  © 2026 FRW Market • WhatsApp: 0795555219
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students & Courses Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #007BFF;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"], input[type="number"] {
+      padding: 6px 10px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 6px 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      background-color: white;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #007BFF;
+      color: white;
+      cursor: pointer;
+    }
+
+    tr.highlight {
+      background-color: #fffa90;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Students & Courses Dashboard</h1>
+
+  <div class="controls">
+    <input type="number" id="ageFilter" placeholder="Min Age">
+    <input type="number" id="bonusFilter" placeholder="Min Bonus">
+    <input type="text" id="courseFilter" placeholder="Course Name">
+    <button onclick="applyFilters()">Apply Filters</button>
+    <button onclick="resetFilters()">Reset Filters</button>
+  </div>
+
+  <table id="studentsTable">
+    <thead>
+      <tr>
+        <th onclick="sortTable(0)">ID ⬍</th>
+        <th onclick="sortTable(1)">Name ⬍</th>
+        <th onclick="sortTable(2)">Age ⬍</th>
+        <th onclick="sortTable(3)">Bonus Points ⬍</th>
+        <th>Courses</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Rows added dynamically -->
+    </tbody>
+  </table>
+
+  <script>
+    // Sample data from your SQL
+    const students = [
+      {id:1, name:'Alice', age:20, bonus:2, courses:['Math','English','Biology']},
+      {id:2, name:'Bob', age:22, bonus:5, courses:['Math','Physics','Chemistry']},
+      {id:3, name:'Charlie', age:19, bonus:3, courses:['History','English']},
+      {id:4, name:'David', age:21, bonus:1, courses:['Math','Computer Science']},
+      {id:5, name:'Eva', age:23, bonus:4, courses:['Biology','Chemistry','English']}
+    ];
+
+    const tableBody = document.getElementById('tableBody');
+
+    // Function to display table
+    function displayTable(data) {
+      tableBody.innerHTML = '';
+      data.forEach((s, index) => {
+        const tr = document.createElement('tr');
+        if(index % 2 === 0) tr.classList.add('even');
+        let coursesList = '<ul>' + s.courses.map(c => `<li>${c}</li>`).join('') + '</ul>';
+        tr.innerHTML = `
+          <td>${s.id}</td>
+          <td>${s.name}</td>
+          <td>${s.age}</td>
+          <td>${s.bonus}</td>
+          <td>${coursesList}</td>
+        `;
+        tableBody.appendChild(tr);
+      });
+    }
+
+    // Initial display
+    displayTable(students);
+
+    // Filter function
+    function applyFilters() {
+      const minAge = parseInt(document.getElementById('ageFilter').value) || 0;
+      const minBonus = parseInt(document.getElementById('bonusFilter').value) || 0;
+      const courseName = document.getElementById('courseFilter').value.toLowerCase();
+      
+      const filtered = students.filter(s => 
+        s.age >= minAge &&
+        s.bonus >= minBonus &&
+        (courseName === '' || s.courses.some(c => c.toLowerCase().includes(courseName)))
+      );
+      displayTable(filtered);
+    }
+
+    function resetFilters() {
+      document.getElementById('ageFilter').value = '';
+      document.getElementById('bonusFilter').value = '';
+      document.getElementById('courseFilter').value = '';
+      displayTable(students);
+    }
+
+    // Sort table function
+    function sortTable(colIndex) {
+      let sorted = [...students];
+      if(colIndex === 0 || colIndex === 2 || colIndex === 3){
+        // numeric columns
+        sorted.sort((a,b) => Object.values(a)[colIndex] - Object.values(b)[colIndex]);
+      } else {
+        // string columns
+        sorted.sort((a,b) => Object.values(a)[colIndex].localeCompare(Object.values(b)[colIndex]));
+      }
+      displayTable(sorted);
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FRW Market | Bluetooth Speakers</title>
+
+<style>
+:root{
+  --primary:#ff6a00;
+  --dark:#1f2937;
+  --gray:#6b7280;
+  --bg:#f9fafb;
+  --wa:#25D366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--dark)}
+
+header{
+  background:#fff;
+  padding:16px 24px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap
+}
+.logo{font-size:2rem;font-weight:900;color:var(--primary)}
+
+.nav{display:flex;gap:12px;flex-wrap:wrap}
+.select-box{
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:10px 14px;
+  font-weight:800;
+  background:#fff;
+  cursor:pointer
+}
+
+.wa-btn{
+  margin-left:auto;
+  background:var(--wa);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none
+}
+
+.trending{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 24px
+}
+.trending-title{
+  font-size:2.2rem;
+  font-weight:900;
+  margin-bottom:20px;
+  display:flex;
+  gap:10px;
+  align-items:center
+}
+.badge{
+  background:var(--primary);
+  color:#fff;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:800
+}
+
+.back-link {margin:20px 0;}
+.back-link a{
+  text-decoration:none;
+  color:var(--primary);
+  font-weight:800;
+  background:#fff;
+  padding:8px 14px;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+.back-link a:hover{
+  background:var(--primary);
+  color:#fff;
+}
+
+.search-box{margin-bottom:30px;}
+.search-box input{
+  width:100%;
+  padding:12px 16px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:1rem
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:24px
+}
+.card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.1);
+  position:relative;
+}
+.card img{width:100%;height:240px;object-fit:cover}
+
+.tag{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:#000;
+  color:#fff;
+  padding:6px 12px;
+  font-size:.75rem;
+  font-weight:900;
+  border-radius:10px
+}
+
+.card-body{padding:16px}
+.title{font-weight:900;font-size:1.1rem}
+.price{font-size:1.6rem;font-weight:900;color:var(--primary)}
+.price span{font-size:.85rem;color:#9ca3af}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px
+}
+.details{
+  flex:1;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  cursor:pointer;
+}
+.whatsapp{
+  flex:1;
+  text-align:center;
+  border:1px solid var(--wa);
+  background:#ecfdf5;
+  color:#16a34a;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#9ca3af;
+  font-weight:600
+}
+</style>
+
+<script>
+function go(link){if(link) window.location.href = link;}
+
+function searchProducts(){
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const products = document.querySelectorAll(".grid .card");
+
+  products.forEach(product => {
+    const title = product.querySelector(".title").innerText.toLowerCase();
+    const brand = product.dataset.brand ? product.dataset.brand.toLowerCase() : '';
+    if(title.includes(input) || brand.includes(input)){
+      product.style.display="block";
+    } else {product.style.display="none";}
+  });
+}
+</script>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">FRW Market</div>
+
+  <div class="nav">
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Digital Devices</option>
+      <option value="digital-bluetooth-headphones.html">Bluetooth Headphones</option>
+      <option value="digital-bluetooth-speakers.html" selected>Bluetooth Speakers</option>
+      <option value="digital-smartwatch.html">Smartwatches</option>
+      <option value="digital-earbuds.html">Earbuds</option>
+  
+    </select>
+  </div>
+
+  <a class="wa-btn"
+     href="https://wa.me/250795555219?text=Hello%20FRW%20Market,%20I%20want%20to%20order%20Bluetooth%20Speakers"
+     target="_blank">
+     WhatsApp 0795555219
+  </a>
+</header>
+
+<section class="trending">
+  <div class="trending-title">
+    🔊 Bluetooth Speakers
+    <span class="badge">Top Picks</span>
+  </div>
+
+  <div class="back-link">
+    <a href="index.html">← Back to Home</a>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search Bluetooth Speakers...">
+  </div>
+
+  <div class="grid">
+
+    <!-- 15 Products -->
+    <!-- Loop through your digital/speaker/0.jpg → 14.jpg -->
+    <!-- Example products -->
+    <div class="card digital bluetooth-speakers" data-category="digital" data-brand="jbl">
+      <span class="tag">JBL</span>
+      <img src="digital/speaker/ac237f901f52afd369df2ce53a7ed64e.jpg">
+      <div class="card-body">
+        <div class="title">JBL Portable Speaker</div>
+        <div class="price">45,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=JBL%20Portable%20Speaker%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card digital bluetooth-speakers" data-category="digital" data-brand="sony">
+      <span class="tag">SONY</span>
+      <img src="digital/speaker/8e6f609a6ec3f413390060edcecfa107.jpg">
+      <div class="card-body">
+        <div class="title">Sony Wireless Speaker</div>
+        <div class="price">160,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Sony%20Wireless%20Speaker%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card digital bluetooth-speakers" data-category="digital" data-brand="bose">
+      <span class="tag">BOSE</span>
+      <img src="digital/speaker/88eee748937c4d1ae120000cae3620ae.jpg">
+      <div class="card-body">
+        <div class="title">Bose SoundLink Speaker</div>
+        <div class="price">17,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Bose%20SoundLink%20Speaker%20150,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 → 14 -->
+    <div class="card digital bluetooth-speakers" data-category="digital" data-brand="anker">
+      <span class="tag">ANKER</span>
+      <img src="digital/speaker/1569b41fe2218cbab87e3807e8b31cfe.jpg">
+      <div class="card-body">
+        <div class="title">Anker SoundCore</div>
+        <div class="price">35,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Anker%20SoundCore%2075,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card digital bluetooth-speakers" data-category="digital" data-brand="xiaomi">
+      <span class="tag">XIAOMI</span>
+      <img src="digital/speaker/1591f2734496bcf1eb48fbc48deb5993.jpg">
+      <div class="card-body">
+        <div class="title">Xiaomi Bluetooth Speaker</div>
+        <div class="price">80,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Xiaomi%20Bluetooth%20Speaker%2065,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card digital bluetooth-speakers" data-category="digital" data-brand="lg">
+      <span class="tag">LG</span>
+      <img src="digital/speaker/069942d2c47ec63f5be5797802ba39ed.jpg">
+      <div class="card-body">
+        <div class="title">LG XBOOM Speaker</div>
+        <div class="price">15,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=LG%20XBOOM%20Speaker%2095,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card digital bluetooth-speakers" data-category="digital" data-brand="philips">
+      <span class="tag">BJL</span>
+      <img src="digital/speaker/ac233640c79c95ea012abde46b35bbfe.jpg">
+      <div class="card-body">
+        <div class="title">BJL Portable Speaker</div>
+        <div class="price">30,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Philips%20Portable%20Speaker%2070,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card digital bluetooth-speakers" data-category="digital" data-brand="creative">
+      <span class="tag">CREATIVE</span>
+      <img src="digital/speaker/e3e56711b1e653073334882de261436a.jpg">
+      <div class="card-body">
+        <div class="title">Creative Halo Speaker</div>
+        <div class="price">45,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Creative%20Halo%20Speaker%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card digital bluetooth-speakers" data-category="digital" data-brand="edifier">
+      <span class="tag">EBJL</span>
+      <img src="digital/speaker/e36ec9d248a6183ca7c48af1cf646c96.jpg">
+      <div class="card-body">
+        <div class="title">BJL R1280DB</div>
+        <div class="price">40,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Edifier%20R1280DB%20130,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card digital bluetooth-speakers" data-category="digital" data-brand="marshall">
+      <span class="tag">MARSHALL</span>
+      <img src="digital/speaker/pexels-marinko-krsmanovic-700471-2651794.jpg">
+      <div class="card-body">
+        <div class="title">Marshall Emberton</div>
+        <div class="price">50,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Marshall%20Emberton%20145,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card digital bluetooth-speakers" data-category="digital" data-brand="ultimate ears">
+      <span class="tag">UE</span>
+      <img src="digital/speaker/pexels-pixabay-373638.jpg">
+      <div class="card-body">
+        <div class="title">SPEAKERS</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Ultimate%20Ears%20Wonderboom%20105,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+  
+
+  </div>
+</section>
+
+<footer>
+  © 2026 FRW Market • WhatsApp: 0795555219
+</footer>
+
+</body>
+</html>

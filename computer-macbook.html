@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FRW Market | MacBook</title>
+
+<style>
+:root{
+  --primary:#ff6a00;
+  --dark:#1f2937;
+  --bg:#f9fafb;
+  --wa:#25D366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--dark)}
+
+header{
+  background:#fff;
+  padding:16px 24px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap
+}
+.back-link{
+  color:var(--primary);
+  font-weight:900;
+  font-size:1.1rem;
+  text-decoration:none
+}
+.logo{font-size:2rem;font-weight:900;color:var(--primary)}
+.nav{display:flex;gap:12px;flex-wrap:wrap}
+
+.select-box{
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:10px 14px;
+  font-weight:800;
+  background:#fff;
+  cursor:pointer
+}
+
+.wa-btn{
+  margin-left:auto;
+  background:var(--wa);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none
+}
+
+/* CONTENT */
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 24px
+}
+.title{
+  font-size:2.2rem;
+  font-weight:900;
+  margin-bottom:20px
+}
+.search{
+  margin-bottom:30px
+}
+.search input{
+  width:100%;
+  padding:12px 16px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:1rem
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:24px
+}
+.card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.1);
+  position:relative
+}
+.card img{width:100%;height:220px;object-fit:cover}
+
+.tag{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:#000;
+  color:#fff;
+  padding:6px 12px;
+  font-size:.75rem;
+  font-weight:900;
+  border-radius:10px
+}
+
+.card-body{padding:16px}
+.card-title{font-weight:900;font-size:1.1rem}
+.price{font-size:1.6rem;font-weight:900;color:var(--primary)}
+.price span{font-size:.85rem;color:#9ca3af}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px
+}
+.details{
+  flex:1;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800
+}
+.whatsapp{
+  flex:1;
+  text-align:center;
+  border:1px solid var(--wa);
+  background:#ecfdf5;
+  color:#16a34a;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#9ca3af;
+  font-weight:600
+}
+</style>
+
+<script>
+function go(link){
+  if(link) window.location.href = link;
+}
+function searchProducts(){
+  const input=document.getElementById("searchInput").value.toLowerCase();
+  document.querySelectorAll(".card").forEach(card=>{
+    const text=card.innerText.toLowerCase();
+    card.style.display=text.includes(input)?"block":"none";
+  });
+}
+</script>
+</head>
+
+<body>
+
+<header>
+  <a href="index.html" class="back-link">&larr; Back</a>
+  <div class="logo">FRW Market</div>
+
+  <div class="nav">
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Computers</option>
+      <option value="computers-hp.html">HP</option>
+      <option value="computers-dell.html">Microsoft</option>
+      <option value="computers-lenovo.html">Lenovo</option>
+      <option value="computers-macbook.html" selected>MacBook</option>
+      <option value="computers-others.html">Others</option>
+    </select>
+  </div>
+
+  <a class="wa-btn"
+     href="https://wa.me/250795555219?text=Hello%20FRW%20Market,%20I%20want%20a%20MacBook"
+     target="_blank">
+     WhatsApp 0795555219
+  </a>
+</header>
+
+<section class="section">
+  <div class="title">💻 MacBook Laptops</div>
+
+  <div class="search">
+    <input id="searchInput" onkeyup="searchProducts()" placeholder="Search MacBook model...">
+  </div>
+
+  <div class="grid">
+
+    <!-- 10 MACBOOK PRODUCTS -->
+    <div class="card"><span class="tag">APPLE</span><img src="pc/mac/Apple Begins Promoting Refurbished 2021 MacBook Professionals with M1 Professional and M1 Max___.jpg"><div class="card-body"><div class="card-title">MacBook Air M1 "</div><div class="price">1,600,000 <span>FRW</span></div><div class="actions"><button class="details">View</button><a class="whatsapp" href="https://wa.me/250795555219?text=MacBook%20Air%20M1%201,150,000%20FRW" target="_blank">WhatsApp</a></div></div></div>
+
+    <div class="card"><span class="tag">APPLE</span><img src="pc/mac/image.jpg"><div class="card-body"><div class="card-title">MacBook Pro 2019</div><div class="price">800,000 <span>FRW</span></div><div class="actions"><button class="details">View</button><a class="whatsapp" href="https://wa.me/250795555219?text=MacBook%20Air%20M2%201,350,000%20FRW" target="_blank">WhatsApp</a></div></div></div>
+
+    <div class="card"><span class="tag">APPLE</span><img src="pc/mac/burgas-bulgaria-august-31-2017-macbook-pro-retina-display-with-touch-K7312D.jpg"><div class="card-body"><div class="card-title">MacBook Pro 2017</div><div class="price">700,000 <span>FRW</span></div><div class="actions"><button class="details">View</button><a class="whatsapp" href="https://wa.me/250795555219?text=MacBook%20Pro%20M1%201,600,000%20FRW" target="_blank">WhatsApp</a></div></div></div>
+
+    <div class="card"><span class="tag">APPLE</span><img src="pc/mac/img-MacBook-Pro-Retina-16-Inch-24323-scaled.jpg"><div class="card-body"><div class="card-title">MacBook Pro M4"</div><div class="price">3,000,000 <span>FRW</span></div><div class="actions"><button class="details">View</button><a class="whatsapp" href="https://wa.me/250795555219?text=MacBook%20Pro%20M2%201,850,000%20FRW" target="_blank">WhatsApp</a></div></div></div>
+
+    <div class="card"><span class="tag">APPLE</span><img src="pc/mac/images.jpg"><div class="card-body"><div class="card-title"> MacBook Pro M2</div><div class="price">2,000,000 <span>FRW</span></div><div class="actions"><button class="details">View</button><a class="whatsapp" href="https://wa.me/250795555219?text=MacBook%20Pro%20M1%20Pro%202,400,000%20FRW" target="_blank">WhatsApp</a></div></div></div>
+
+    <div class="card"><span class="tag">APPLE</span><img src="pc/mac/iMac-4K-5K-2015 (1).jpg"><div class="card-body"><div class="card-title">iMac 2015</div><div class="price">750,000 <span>FRW</span></div><div class="actions"><button class="details">View</button><a class="whatsapp" href="https://wa.me/250795555219?text=MacBook%20Pro%20M2%20Pro%202,750,000%20FRW" target="_blank">WhatsApp</a></div></div></div>
+
+    <div class="card"><span class="tag">APPLE</span><img src="pc/mac/MacBook-Pro-Retina-16-Inch-41411.jpg"><div class="card-body"><div class="card-title">MacBook Pro M1 Pro</div><div class="price">1,800,000 <span>FRW</span></div><div class="actions"><button class="details">View</button><a class="whatsapp" href="https://wa.me/250795555219?text=MacBook%20Pro%20M1%20Max%203,200,000%20FRW" target="_blank">WhatsApp</a></div></div></div>
+
+    <div class="card"><span class="tag">APPLE</span><img src="pc/mac/05FYuLN94re1yorfk5sDj6f-2.webp"><div class="card-body"><div class="card-title">MacBook Pro</div><div class="price">400,000 <span>FRW</span></div><div class="actions"><button class="details">View</button><a class="whatsapp" href="https://wa.me/250795555219?text=MacBook%20Pro%20M2%20Max%203,850,000%20FRW" target="_blank">WhatsApp</a></div></div></div>
+
+    <div class="card"><span class="tag">APPLE</span><img src="pc/mac/apple-macbook-pro-2019-16-1670574021.jpg"><div class="card-body"><div class="card-title">MacBook Pro 2019</div><div class="price">1,300,000 <span>FRW</span></div><div class="actions"><button class="details">View</button><a class="whatsapp" href="https://wa.me/250795555219?text=MacBook%20Air%20Intel%20850,000%20FRW" target="_blank">WhatsApp</a></div></div></div>
+
+    <div class="card"><span class="tag">APPLE</span><img src="pc/mac/mac-mini-m4-08.webp"><div class="card-body"><div class="card-title">Apple Mac Mini</div><div class="price">900,000 <span>FRW</span></div><div class="actions"><button class="details">View</button><a class="whatsapp" href="https://wa.me/250795555219?text=MacBook%20Pro%20Intel%201,200,000%20FRW" target="_blank">WhatsApp</a></div></div></div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 FRW Market • WhatsApp: 0795555219
+</footer>
+
+</body>
+</html>
+0725762092

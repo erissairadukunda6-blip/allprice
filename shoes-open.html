@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FRW Market | open Shoes</title>
+
+<style>
+:root{
+  --primary:#ff6a00;
+  --dark:#1f2937;
+  --gray:#6b7280;
+  --bg:#f9fafb;
+  --wa:#25D366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--dark)}
+
+header{
+  background:#fff;
+  padding:16px 24px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap
+}
+.logo{font-size:2rem;font-weight:900;color:var(--primary)}
+
+.nav{display:flex;gap:12px;flex-wrap:wrap}
+.select-box{
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:10px 14px;
+  font-weight:800;
+  background:#fff;
+  cursor:pointer
+}
+
+.wa-btn{
+  margin-left:auto;
+  background:var(--wa);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none
+}
+
+.trending{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 24px
+}
+.trending-title{
+  font-size:2.2rem;
+  font-weight:900;
+  margin-bottom:20px;
+  display:flex;
+  gap:10px;
+  align-items:center
+}
+.badge{
+  background:var(--primary);
+  color:#fff;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:800
+}
+
+.back-link {
+  margin:20px 0;
+}
+.back-link a{
+  text-decoration:none;
+  color:var(--primary);
+  font-weight:800;
+  font-size:1rem;
+  background:#fff;
+  padding:8px 14px;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+  transition:0.3s;
+}
+.back-link a:hover{
+  background:var(--primary);
+  color:#fff;
+}
+
+.search-box{
+  margin-bottom:30px;
+}
+.search-box input{
+  width:100%;
+  padding:12px 16px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:1rem
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:24px
+}
+.card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.1);
+  position:relative;
+}
+.card img{width:100%;height:240px;object-fit:cover}
+
+.tag{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:#000;
+  color:#fff;
+  padding:6px 12px;
+  font-size:.75rem;
+  font-weight:900;
+  border-radius:10px
+}
+
+.card-body{padding:16px}
+.title{font-weight:900;font-size:1.1rem}
+.price{font-size:1.6rem;font-weight:900;color:var(--primary)}
+.price span{font-size:.85rem;color:#9ca3af}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px
+}
+.details{
+  flex:1;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  cursor:pointer;
+}
+.whatsapp{
+  flex:1;
+  text-align:center;
+  border:1px solid var(--wa);
+  background:#ecfdf5;
+  color:#16a34a;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#9ca3af;
+  font-weight:600
+}
+</style>
+
+<script>
+function go(link){if(link) window.location.href = link;}
+
+// Live search
+function searchProducts(){
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const products = document.querySelectorAll(".grid .card");
+
+  products.forEach(product => {
+    const title = product.querySelector(".title").innerText.toLowerCase();
+    const category = product.dataset.category ? product.dataset.category.toLowerCase() : '';
+    const brand = product.dataset.brand ? product.dataset.brand.toLowerCase() : '';
+
+    if(title.includes(input) || category.includes(input) || brand.includes(input)){
+      product.style.display="block";
+    } else {product.style.display="none";}
+  });
+}
+</script>
+
+</head>
+
+<body>
+
+<header>
+  <div class="logo">FRW Market</div>
+
+  <div class="nav">
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Shoes</option>
+      <option value="shoes-nike.html">Nike</option>
+      <option value="shoes-jordan.html">Jordan</option>
+      <option value="shoes-adidas.html">Adidas</option>
+      <option value="shoes-puma.html">Puma</option>
+      <option value="shoes-vans.html">Vans</option>
+      <option value="shoes-newbalance.html">new balance</option>
+      <option value="shoes-open.html" selected>open</option>
+      <option value="shoes-balenciaga.html">Balenciaga</option>
+      <option value="shoes-others.html">Others</option>
+    </select>
+  </div>
+
+  <a class="wa-btn"
+     href="https://wa.me/250795555219?text=Hello%20FRW%20Market,%20I%20want%20to%20order%20New%20Balance%20Shoes"
+     target="_blank">
+     WhatsApp 0795555219
+  </a>
+</header>
+
+<section class="trending">
+  <div class="trending-title">
+    🏃 open Shoes
+    <span class="badge">Hot Deals</span>
+  </div>
+
+  <!-- Back link -->
+  <div class="back-link">
+    <a href="index.html">← Back to Home</a>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search open products...">
+  </div>
+
+  <div class="grid">
+    <!-- Example open Products -->
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/1 (1).jpg">
+      <div class="card-body">
+        <div class="title">open 574 Classic</div>
+        <div class="price">20,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-574.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20574%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/1 (2).jpg">
+      <div class="card-body">
+        <div class="title">open 990v5 sandal</div>
+        <div class="price">15,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-990.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20990v5%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/1.jpg">
+      <div class="card-body">
+        <div class="title">open Fresh Foam</div>
+        <div class="price">18,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+<div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/2bd93aea32dc9354dd787e3c31af5b48.jpg">
+      <div class="card-body">
+        <div class="title">open top Classic</div>
+        <div class="price">27,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-574.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20574%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/3e128892b957dd99265ea9f11646b6fe.jpg">
+      <div class="card-body">
+        <div class="title">open slide</div>
+        <div class="price">12,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-990.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20990v5%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/4c4c63079b49244b9d742f26c47c6336.jpg">
+      <div class="card-body">
+        <div class="title">open Fresh Foam</div>
+        <div class="price">17,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/4e766cd7e2a5935cd5193c1251377149.jpg">
+      <div class="card-body">
+        <div class="title">open Fresh sandral</div>
+        <div class="price">27,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+        <!-- Example open Products -->
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/6d9d83d8276f943af70a9b87666ab02d.jpg">
+      <div class="card-body">
+        <div class="title">open women Classic</div>
+        <div class="price">20,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-574.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20574%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/7e62018330a33f4b2dca3c6b9754983b.jpg">
+      <div class="card-body">
+        <div class="title">open 990v5 </div>
+        <div class="price">9,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-990.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20990v5%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/9d4d058131e1f46e5370da63c59f9034.jpg">
+      <div class="card-body">
+        <div class="title">open Fresh top Foam</div>
+        <div class="price">8,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+<div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/14ea27ead5aef0bace3da8e1a2049777.jpg">
+      <div class="card-body">
+        <div class="title">open top 4</div>
+        <div class="price">9,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-574.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20574%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/48a7f28e9e6fd35e6a3cb2b52d4f822b.jpg">
+      <div class="card-body">
+        <div class="title">open semi close</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-990.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20990v5%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/68c91d360e1a94ccf8a5982a2fc75a77.jpg">
+      <div class="card-body">
+        <div class="title">open 3 band</div>
+        <div class="price">7,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/83aebff032f8de169ce1ca8c21575947.jpg">
+      <div class="card-body">
+        <div class="title">open Fresh semi close</div>
+        <div class="price">8,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+     <!-- Example open Products -->
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/154a2371c012ae803a58ba585c5b7dd5.jpg">
+      <div class="card-body">
+        <div class="title">open women Classic</div>
+        <div class="price">12,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-574.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20574%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/546fcb75bd4aad0cc0910576e891313f.jpg">
+      <div class="card-body">
+        <div class="title">open 990v5 </div>
+        <div class="price">10,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-990.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20990v5%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/4330cabe0f48983d395ed61646353571.jpg">
+      <div class="card-body">
+        <div class="title">open Fresh top 2</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+<div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/78550111_NjIwLTQ4NS0zMzRiNTc5NWFl.WEBP">
+      <div class="card-body">
+        <div class="title">open NB top 4</div>
+        <div class="price">20,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-574.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20574%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/a00d4325ce9c80525bb249e7f96009d2.jpg">
+      <div class="card-body">
+        <div class="title">open semi close</div>
+        <div class="price">20,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-990.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20990v5%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/ae0a28af4f3826439d25d9945296752e.jpg">
+      <div class="card-body">
+        <div class="title">open 3 TOP MEN</div>
+        <div class="price">20,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/b50c35d73b203b678e277ba6c495d7f2.jpg">
+      <div class="card-body">
+        <div class="title">open Fresh semi TR</div>
+        <div class="price">17,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/caa2bf8a1d572ed67336f9317fdaf604.jpg">
+      <div class="card-body">
+        <div class="title">ope7n Fresh semi close</div>
+        <div class="price">9,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+     <!-- Example open Products -->
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/d75797127382bb43ca47e161230dbbfe.jpg">
+      <div class="card-body">
+        <div class="title">open women Classic</div>
+        <div class="price">12,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-574.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20574%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/dbb76f0b30f08c0e18fdc43e210434af.jpg">
+      <div class="card-body">
+        <div class="title">open 990v5 </div>
+        <div class="price">5,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-990.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20990v5%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/Elegant-Open-Toe-Lady-Sandals-for-Women-Casual-Shoes-Sandal-Shoe.avif">
+      <div class="card-body">
+        <div class="title">open Fresh top 2</div>
+        <div class="price">10,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+<div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/fb557b897d0c3e7ece06714a8ea6e598.jpg">
+      <div class="card-body">
+        <div class="title">open NB top 4</div>
+        <div class="price">12,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-574.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20574%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/green-adjustable-buckle-sandals-presented-260nw-2683488401.webp">
+      <div class="card-body">
+        <div class="title">open semi close</div>
+        <div class="price">7,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-990.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20990v5%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/images (1).jpg">
+      <div class="card-body">
+        <div class="title">open 3 TOP MEN</div>
+        <div class="price">5,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/images.jpg">
+      <div class="card-body">
+        <div class="title">open Fresh semi TR</div>
+        <div class="price">10,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+
+
+<div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/istockphoto-89930249-612x612.jpg">
+      <div class="card-body">
+        <div class="title">open top 4</div>
+        <div class="price">12,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-574.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20574%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/istockphoto-132024194-612x612.jpg">
+      <div class="card-body">
+        <div class="title">open semi close</div>
+        <div class="price">15,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-990.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20990v5%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/Nike Utility Sandals mens open shoe Blue Slides.webp">
+      <div class="card-body">
+        <div class="title">open 3 TOP MEN sandal</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/open-shoes-19649342.webp">
+      <div class="card-body">
+        <div class="title">open Fresh semi TR</div>
+        <div class="price">17,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+<div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/istockphoto-89930249-612x612.jpg">
+      <div class="card-body">
+        <div class="title">open top 4</div>
+        <div class="price">12,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-574.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20574%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/istockphoto-132024194-612x612.jpg">
+      <div class="card-body">
+        <div class="title">open semi close</div>
+        <div class="price">15,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-990.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20990v5%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/Nike Utility Sandals mens open shoe Blue Slides.webp">
+      <div class="card-body">
+        <div class="title">open 3 TOP MEN sandal</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/open-shoes-19649342.webp">
+      <div class="card-body">
+        <div class="title">open Fresh semi TR</div>
+        <div class="price">17,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>    
+<div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/download.jpg">
+      <div class="card-body">
+        <div class="title">open top 4</div>
+        <div class="price">8,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-574.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Ndownloadew%20Balance%20574%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/shopping (2).webp">
+      <div class="card-body">
+        <div class="title">open semi close</div>
+        <div class="price">20,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-990.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20990v5%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/shopping.webp">
+      <div class="card-body">
+        <div class="title">open 3 TOP MEN sandal</div>
+        <div class="price">12,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shoes newbalance" data-category="shoes" data-brand="newbalance">
+      <span class="tag">open</span>
+      <img src="shoes/open/download.webp">
+      <div class="card-body">
+        <div class="title">open Fresh semi TR</div>
+        <div class="price">12,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details" onclick="go('shoes-newbalance-freshfoam.html')">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=New%20Balance%20Fresh%20Foam%20110,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 FRW Market • WhatsApp: 0795555219
+</footer>
+
+</body>
+</html>

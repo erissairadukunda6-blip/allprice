@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FRW Market | Jackets</title>
+<style>
+:root {
+  --primary: #ff6a00;
+  --dark: #1f2937;
+  --gray: #6b7280;
+  --bg: #f9fafb;
+  --wa: #25D366;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--dark); }
+
+header {
+  background: #fff;
+  padding: 16px 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.back-link {
+  color: var(--primary);
+  font-weight: 900;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.logo { font-size: 2rem; font-weight: 900; color: var(--primary); }
+
+.nav { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.select-box {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 800;
+  background: #fff;
+  cursor: pointer;
+}
+
+.wa-btn {
+  margin-left: auto;
+  background: var(--wa);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+/* Trending / Product Grid */
+.trending {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 24px;
+}
+
+.trending-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.badge {
+  background: var(--primary);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 800;
+}
+
+.search-box { margin-bottom: 30px; }
+.search-box input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.1);
+  position: relative;
+}
+
+.card img { width: 100%; height: 240px; object-fit: cover; }
+
+.tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #000;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: .75rem;
+  font-weight: 900;
+  border-radius: 10px;
+}
+
+.card-body { padding: 16px; }
+.title { font-weight: 900; font-size: 1.1rem; }
+.price { font-size: 1.6rem; font-weight: 900; color: var(--primary); }
+.price span { font-size: .85rem; color: #9ca3af; }
+
+.actions { display: flex; gap: 10px; margin-top: 14px; }
+
+.details {
+  flex: 1;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+.whatsapp {
+  flex: 1;
+  text-align: center;
+  border: 1px solid var(--wa);
+  background: #ecfdf5;
+  color: #16a34a;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+</style>
+<script>
+function go(link) { if(link) window.location.href = link; }
+function searchProducts() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const products = document.querySelectorAll(".grid .card");
+  products.forEach(product => {
+    const title = product.querySelector(".title").innerText.toLowerCase();
+    if(title.includes(input)) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+</script>
+</head>
+<body>
+
+<header>
+  
+  <div class="logo">FRW Market</div>
+  <div class="nav">
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Clothes</option>
+      <option value="clothes-men.html">Men</option>
+      <option value="clothes-women.html">Women</option>
+      <option value="clothes-others.html">children</option>
+      <option value="clothes-jackets.html" selected>Jackets</option>
+      <option value="clothes-complete.html">completes</option>
+      <option value="clothes-others.html">Others</option>
+    </select>
+  </div>
+  <a href="index.html" class="back-link">&larr; Back</a>
+  <a class="wa-btn" href="https://wa.me/250795555219?text=Hello%20FRW%20Market,%20I%20want%20Jackets" target="_blank">WhatsApp 0795555219</a>
+</header>
+
+<section class="trending">
+  <div class="trending-title">🧥 Jackets Collection <span class="badge">Hot Deals</span></div>
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search jackets...">
+  </div>
+
+  <div class="grid">
+    <!-- Example Jacket Products -->
+    <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/istockphoto-1969455105-612x612.webp">
+      <div class="card-body">
+        <div class="title">Jacket with baby+</div>
+        <div class="price">18,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Men%20Leather%20Jacket%2045,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/photo-1543076447-215ad9ba6923.avif">
+      <div class="card-body">
+        <div class="title">Denim Jacket</div>
+        <div class="price">8,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Winter%20Puffer%20Jacket%2055,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/photo-1544022613-e87ca75a784a.avif">
+      <div class="card-body">
+        <div class="title"> Jacket</div>
+        <div class="price">12,000<span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Denim%20Jacket%2035,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/photo-1544022613-e87ca75a784.avif">
+      <div class="card-body">
+        <div class="title">Black Jacket</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Hooded%20Jacket%2040,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/photo-1706765779494-2705542ebe74.avif">
+      <div class="card-body">
+        <div class="title">Winner+ Jacket </div>
+        <div class="price">30,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Men%20Leather%20Jacket%2045,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/photo-1552327359-d86398116072.avif">
+      <div class="card-body">
+        <div class="title">winner  Jacket</div>
+        <div class="price">26,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Winter%20Puffer%20Jacket%2055,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/photo-1591047139829-d91aecb6caea.avif">
+      <div class="card-body">
+        <div class="title"> Jacket+ist</div>
+        <div class="price">10,000<span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Denim%20Jacket%2035,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/photo-1611312449408-fcece27cdbb7.avif">
+      <div class="card-body">
+        <div class="title">Jacket</div>
+        <div class="price">15,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Hooded%20Jacket%2040,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+     <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/AC.avif">
+      <div class="card-body">
+        <div class="title"> Jacket AC</div>
+        <div class="price">26,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Winter%20Puffer%20Jacket%2055,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/still-life-rendering-jackets-display (1).JPG">
+      <div class="card-body">
+        <div class="title">still-life-rendering-jackets</div>
+        <div class="price">17,000<span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Denim%20Jacket%2035,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/still-life-rendering-jackets-display.JPG">
+      <div class="card-body">
+        <div class="title">Jacket</div>
+        <div class="price">20,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Hooded%20Jacket%2040,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+       <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/still-life-rendering-jackets-display (2).JPG">
+      <div class="card-body">
+        <div class="title">Jacket</div>
+        <div class="price">20,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Hooded%20Jacket%2040,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <!-- Add more jackets up to 10 if needed -->
+     <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/istockphoto-2196583308-1024x1024.JPG">
+      <div class="card-body">
+        <div class="title"> Jacket AC</div>
+        <div class="price">15,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Winter%20Puffer%20Jacket%2055,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/photo-1548126032-079a0fb0099d.avif">
+      <div class="card-body">
+        <div class="title">jackcts (jammper with thier coats</div>
+        <div class="price">35,000<span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Denim%20Jacket%2035,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/photo-1559551409-dadc959f76b8.avif">
+      <div class="card-body">
+        <div class="title">Jacket</div>
+        <div class="price">27,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Hooded%20Jacket%2040,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+       <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/photo-1577660002965-04865592fc60.avif">
+      <div class="card-body">
+        <div class="title">Jacket</div>
+        <div class="price">15,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Hooded%20Jacket%2040,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/photo-1605908502724-9093a79a1b39.avif">
+      <div class="card-body">
+        <div class="title">Jacket</div>
+        <div class="price">27,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Hooded%20Jacket%2040,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+       <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/photo-1611312449408-fcece27cdbb7.avif">
+      <div class="card-body">
+        <div class="title">Jacket</div>
+        <div class="price">17,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Hooded%20Jacket%2040,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+     <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/premium_photo-1671641797643-bf400f45a36b.avif">
+      <div class="card-body">
+        <div class="title">Jacket</div>
+        <div class="price">22,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Hooded%20Jacket%2040,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/premium_photo-1675186049563-000f7ac02c44.avif">
+      <div class="card-body">
+        <div class="title">Jacket</div>
+        <div class="price">17,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Hooded%20Jacket%2040,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+       <div class="card jackets" data-category="jackets">
+      <span class="tag">JACKET</span>
+      <img src="Clothers/Jacket/premium_photo-1708274926530-baee350496da.avif">
+      <div class="card-body">
+        <div class="title">Jacket</div>
+        <div class="price">28,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Hooded%20Jacket%2040,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<footer>© 2026 FRW Market • WhatsApp: 0795555219</footer>
+
+</body>
+</html>

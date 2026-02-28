@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FRW Market | Trending Products</title>
+<style>
+:root{
+  --primary:#ff6a00;
+  --dark:#1f2937;
+  --gray:#6b7280;
+  --bg:#f9fafb;
+  --wa:#25D366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--dark)}
+
+header{
+  background:#fff;
+  padding:16px 24px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap
+}
+.logo{font-size:2rem;font-weight:900;color:var(--primary)}
+
+.nav{display:flex;gap:12px;flex-wrap:wrap}
+.select-box{
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:10px 14px;
+  font-weight:800;
+  background:#fff;
+  cursor:pointer
+}
+
+.wa-btn{
+  margin-left:auto;
+  background:var(--wa);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none
+}
+
+/* TRENDING */
+.trending{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 24px
+}
+.trending-title{
+  font-size:2.2rem;
+  font-weight:900;
+  margin-bottom:20px;
+  display:flex;
+  gap:10px;
+  align-items:center
+}
+.badge{
+  background:var(--primary);
+  color:#fff;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:800
+}
+
+.search-box{
+  margin-bottom:30px;
+}
+.search-box input{
+  width:100%;
+  padding:12px 16px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:1rem
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:24px
+}
+.card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.1);
+  position:relative;
+}
+.card img{width:100%;height:240px;object-fit:cover}
+
+.tag{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:#000;
+  color:#fff;
+  padding:6px 12px;
+  font-size:.75rem;
+  font-weight:900;
+  border-radius:10px
+}
+
+.card-body{padding:16px}
+.title{font-weight:900;font-size:1.1rem}
+.price{font-size:1.6rem;font-weight:900;color:var(--primary)}
+.price span{font-size:.85rem;color:#9ca3af}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px
+}
+.details{
+  flex:1;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  cursor:pointer;
+}
+.whatsapp{
+  flex:1;
+  text-align:center;
+  border:1px solid var(--wa);
+  background:#ecfdf5;
+  color:#16a34a;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#9ca3af;
+  font-weight:600
+}
+</style>
+<script>
+function go(link){ if(link) window.location.href = link; }
+
+// Live full-page search
+function searchProducts(){
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const products = document.querySelectorAll(".grid .card");
+
+  products.forEach(product => {
+    const title = product.querySelector(".title").innerText.toLowerCase();
+    const category = product.dataset.category ? product.dataset.category.toLowerCase() : '';
+    const brand = product.dataset.brand ? product.dataset.brand.toLowerCase() : '';
+    const type = product.dataset.type ? product.dataset.type.toLowerCase() : '';
+
+    if(title.includes(input) || category.includes(input) || brand.includes(input) || type.includes(input)){
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="logo">FRW Market</div>
+
+  <div class="nav">
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Shoes</option>
+      <option value="shoes-nike.html">Nike</option>
+      <option value="shoes-jordan.html">Jordan</option>
+      <option value="shoes-puma.html">Puma</option>
+      <option value="shoes-new balance.html">New Balance</option>
+      <option value="shoes-vans.html">Vans</option>
+      <option value="shoes-balenciaga.html">Balenciaga</option>
+      <option value="shoes-adidas.html">Adidas</option>
+      <option value="shoes-open.html">open</option>
+      <option value="shoes-others.html">Others</option>
+    </select>
+
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Computers</option>
+      <option value="computers-hp.html">HP</option>
+      <option value="computers-dell.html">Dell</option>
+      <option value="computers-lenovo.html">Lenovo</option>
+      <option value="computer-macbook.html">MacBook</option>
+      <option value="computers-others.html">Others</option>
+    </select>
+
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Clothes</option>
+      <option value="clothes-men.html">Men</option>
+      <option value="clothes-women.html">Women</option>
+      <option value="clothes-jackets.html">Jackets</option>
+      <option value="clothes-complete.html">Completes</option>
+      <option value="clothes-others.html">Children</option>
+    </select>
+
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Phones</option>
+      <option value="phones-samsung.html">Samsung</option>
+      <option value="phones-iphone.html">iPhone</option>
+      <option value="phones-tecno.html">Tecno</option>
+      <option value="phones-infinix.html">Infinix</option>
+      <option value="phones-others.html">Others</option>
+    </select>
+
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Accessories</option>
+      <option value="accessories-watches.html">Watches</option>
+      <option value="accessories-bags.html">Bags</option>
+      <option value="accessories-belts.html">Belts</option>
+      <option value="accessories-glasses.html">Glasses</option>
+      <option value="accessories-hats.html">Hats</option>
+      <option value="accessories-jewelry.html">Jewelry</option>
+      <option value="accessories-others.html">Others</option>
+    </select>
+
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Digital Devices</option>
+      <option value="digital-bluetooth-headphones.html">Bluetooth Headphones</option>
+      <option value="digital-bluetooth-speakers.html">Bluetooth Speakers</option>
+      <option value="digital-smartwatch.html">Smartwatches</option>
+      <option value="digital-earbuds.html">Earbuds</option>
+      <option value="digital-others.html">Others</option>
+    </select>
+  </div>
+
+  <a class="wa-btn" href="https://wa.me/250795555219?text=Hello%20FRW%20Market,%20I%20want%20to%20order." target="_blank">
+     WhatsApp 0795555219
+  </a>
+</header>
+
+<section class="trending">
+  <div class="trending-title">
+    🔥 Trending Products
+    <span class="badge">Hot Deals</span>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search products across all categories...">
+  </div>
+
+  <div class="grid">
+
+    <!-- Shoes Example -->
+    <div class="card shoes nike" data-category="shoes" data-brand="nike">
+      <span class="tag">NIKE</span>
+      <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6">
+      <div class="card-body">
+        <div class="title">Nike Running Shoes</div>
+        <div class="price">75,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Nike%20Running%20Shoes%2075,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Computers Example -->
+    <div class="card computers dell" data-category="computers" data-brand="dell">
+      <span class="tag">DELL</span>
+      <img src="https://images.unsplash.com/photo-1587829741301-dc798b82b0f0">
+      <div class="card-body">
+        <div class="title">Dell Laptop</div>
+        <div class="price">650,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Dell%20Laptop%20650,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clothes Example -->
+    <div class="card clothes women" data-category="clothes" data-type="women">
+      <span class="tag">CLOTHES</span>
+      <img src="https://images.unsplash.com/photo-1593032465171-0b7e9a18a3f5">
+      <div class="card-body">
+        <div class="title">Women Dress</div>
+        <div class="price">55,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Women%20Dress%2055,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phones Example -->
+    <div class="card phones samsung" data-category="phones" data-brand="samsung">
+      <span class="tag">SAMSUNG</span>
+      <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
+      <div class="card-body">
+        <div class="title">Samsung Smartphone</div>
+        <div class="price">320,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Samsung%20Smartphone%20320,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Digital Devices Example -->
+    <div class="card digital bluetooth-headphones" data-category="digital" data-brand="sony">
+      <span class="tag">SONY</span>
+      <img src="https://images.unsplash.com/photo-1585386959984-a4155221e8c3">
+      <div class="card-body">
+        <div class="title">Sony Bluetooth Headphones</div>
+        <div class="price">120,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Sony%20Bluetooth%20Headphones%20120,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card digital bluetooth-speakers" data-category="digital" data-brand="jbl">
+      <span class="tag">JBL</span>
+      <img src="https://images.unsplash.com/photo-1589187156431-1c6a246c2f26">
+      <div class="card-body">
+        <div class="title">JBL Bluetooth Speaker</div>
+        <div class="price">85,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=JBL%20Bluetooth%20Speaker%2085,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  © 2026 FRW Market • WhatsApp: 0795555219
+</footer>
+
+</body>
+</html>

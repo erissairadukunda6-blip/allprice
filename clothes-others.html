@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FRW Market | children Clothes</title>
+<style>
+:root {
+  --primary: #ff6a00;
+  --dark: #1f2937;
+  --gray: #6b7280;
+  --bg: #f9fafb;
+  --wa: #25D366;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--dark); }
+
+header {
+  background: #fff;
+  padding: 16px 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.back-link {
+  color: var(--primary);
+  font-weight: 900;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.logo { font-size: 2rem; font-weight: 900; color: var(--primary); }
+
+.nav { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.select-box {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 800;
+  background: #fff;
+  cursor: pointer;
+}
+
+.wa-btn {
+  margin-left: auto;
+  background: var(--wa);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+/* Trending / Product Grid */
+.trending {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 24px;
+}
+
+.trending-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.badge {
+  background: var(--primary);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 800;
+}
+
+.search-box { margin-bottom: 30px; }
+.search-box input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.1);
+  position: relative;
+}
+
+.card img { width: 100%; height: 240px; object-fit: cover; }
+
+.tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #000;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: .75rem;
+  font-weight: 900;
+  border-radius: 10px;
+}
+
+.card-body { padding: 16px; }
+.title { font-weight: 900; font-size: 1.1rem; }
+.price { font-size: 1.6rem; font-weight: 900; color: var(--primary); }
+.price span { font-size: .85rem; color: #9ca3af; }
+
+.actions { display: flex; gap: 10px; margin-top: 14px; }
+
+.details {
+  flex: 1;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+.whatsapp {
+  flex: 1;
+  text-align: center;
+  border: 1px solid var(--wa);
+  background: #ecfdf5;
+  color: #16a34a;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+</style>
+<script>
+function go(link) { if(link) window.location.href = link; }
+function searchProducts() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const products = document.querySelectorAll(".grid .card");
+  products.forEach(product => {
+    const title = product.querySelector(".title").innerText.toLowerCase();
+    if(title.includes(input)) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+</script>
+</head>
+<body>
+
+<header>
+  
+  <div class="logo">FRW Market</div>
+  <div class="nav">
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Clothes</option>
+      <option value="clothes-men.html">Men</option>
+      <option value="clothes-women.html">Women</option>
+      <option value="clothes-jackets.html">Jackets</option>
+      <option value="clothes-complete.html">completes</option>
+      <option value="clothes-others.html">children</option>
+    </select>
+  </div>
+  <a href="index.html" class="back-link">&larr; Back</a>
+  <a class="wa-btn" href="https://wa.me/250795555219?text=Hello%20FRW%20Market,%20I%20want%20children%20Clothes" target="_blank">WhatsApp 0795555219</a>
+</header>
+
+<section class="trending">
+  <div class="trending-title">👕 children collection<span class="badge">Hot Deals</span></div>
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search products...">
+  </div>
+
+  <div class="grid">
+    <!-- Example children Clothes Products -->
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/B+NP+DF+FLC+PANT (1).avif">
+      <div class="card-body">
+        <div class="title">complete </div>
+        <div class="price">20,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Leather%20Vest%2028,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/B+NSW+TCH+FLC+FZ+-+PD.avif">
+      <div class="card-body">
+        <div class="title">Hoodie jacket</div>
+        <div class="price">8,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Casual%20Hoodie%2020,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/G+NSW+CLUB+FLC+OVRSZD+CREW+LBR.avif">
+      <div class="card-body">
+        <div class="title">crew vales</div>
+        <div class="price">10,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Summer%20Top%2015,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/G+NSW+CLUB+FLC+WL+PNT+LBR.avif">
+      <div class="card-body">
+        <div class="title">Denim complte</div>
+        <div class="price">22,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Denim%20Vest%2022,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/G+NSW+FLC+PNT+COZY.avif">
+      <div class="card-body">
+        <div class="title">Leather complete</div>
+        <div class="price">28,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Leather%20Vest%2028,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/K+NK+AIR+PO+HOODIE.avif">
+      <div class="card-body">
+        <div class="title">Casual jamp</div>
+        <div class="price">10,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Casual%20Hoodie%2020,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/K+NSW+CITY+UTILITY+FZ+HDY+MM.avif">
+      <div class="card-body">
+        <div class="title">Summer Top</div>
+        <div class="price">15,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Summer%20Top%2015,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/K+NSW+CITY+UTILITY+PANT+MM.avif">
+      <div class="card-body">
+        <div class="title">Denim complete</div>
+        <div class="price">30,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Denim%20Vest%2022,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Add more products as needed -->
+        <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/K+NSW+CLUB+FLC+CREW+LS+LBR.avif">
+      <div class="card-body">
+        <div class="title">vales </div>
+        <div class="price">9,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Leather%20Vest%2028,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/K+NSW+CLUB+FLC+JGGR+GOLD.avif">
+      <div class="card-body">
+        <div class="title">complete nike</div>
+        <div class="price">18,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Casual%20Hoodie%2020,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/K+NSW+CLUB+FLC+JGGR+LBR.avif">
+      <div class="card-body">
+        <div class="title">crew complete</div>
+        <div class="price">20,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Summer%20Top%2015,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/K+NSW+DF+TRACKSUIT+PK+FZ.avif">
+      <div class="card-body">
+        <div class="title"> complte</div>
+        <div class="price">24,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Denim%20Vest%2022,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/K+NSW+MESH+JERSEY+LS+TOP.avif">
+      <div class="card-body">
+        <div class="title">Leather js</div>
+        <div class="price">6,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Leather%20Vest%2028,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/K+NSW+TEE+PHOTO+ANIMAL+HUMOR.avif">
+      <div class="card-body">
+        <div class="title">Casual t shirt</div>
+        <div class="price">4,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Casual%20Hoodie%2020,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/K+NSW+TF+ADP+PUFFER+MTRL+VNR.avif">
+      <div class="card-body">
+        <div class="title">Summer Top ver 2</div>
+        <div class="price">28,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Summer%20Top%2015,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/MID+WEIGHT+FILL+JKT.avif">
+      <div class="card-body">
+        <div class="title">Denim winner top 4</div>
+        <div class="price">15,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Denim%20Vest%2022,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+      <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/MJ+BROOKLYN+HOLIDAY+PO.avif">
+      <div class="card-body">
+        <div class="title">jamp Top ver 2</div>
+        <div class="price">15,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Summer%20Top%2015,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card clothes children" data-category="children">
+      <span class="tag">children
+</span>
+      <img src="clothers/children/NK+Y+ATHLETIC+VB+CTN+TEE.avif">
+      <div class="card-body">
+        <div class="title">Denim t_shirt</div>
+        <div class="price">12,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Denim%20Vest%2022,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+
+<footer>© 2026 FRW Market • WhatsApp: 0795555219</footer>
+
+</body>
+</html>

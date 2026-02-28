@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FRW Market | Infinix Phones</title>
+<style>
+:root {
+  --primary: #ff6a00;
+  --dark: #1f2937;
+  --gray: #6b7280;
+  --bg: #f9fafb;
+  --wa: #25D366;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: system-ui, sans-serif; background: var(--bg); color: var(--dark); }
+
+header {
+  background: #fff;
+  padding: 16px 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.back-link {
+  color: var(--primary);
+  font-weight: 900;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.logo { font-size: 2rem; font-weight: 900; color: var(--primary); }
+
+.nav { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.select-box {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 800;
+  background: #fff;
+  cursor: pointer;
+}
+
+.wa-btn {
+  margin-left: auto;
+  background: var(--wa);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+/* Trending / Product Grid */
+.trending {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 24px;
+}
+
+.trending-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.badge {
+  background: var(--primary);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: .85rem;
+  font-weight: 800;
+}
+
+.search-box { margin-bottom: 30px; }
+.search-box input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px,1fr));
+  gap: 24px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,.1);
+  position: relative;
+}
+
+.card img { width: 100%; height: 240px; object-fit: cover; }
+
+.tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #000;
+  color: #fff;
+  padding: 6px 12px;
+  font-size: .75rem;
+  font-weight: 900;
+  border-radius: 10px;
+}
+
+.card-body { padding: 16px; }
+.title { font-weight: 900; font-size: 1.1rem; }
+.price { font-size: 1.6rem; font-weight: 900; color: var(--primary); }
+.price span { font-size: .85rem; color: #9ca3af; }
+
+.actions { display: flex; gap: 10px; margin-top: 14px; }
+
+.details {
+  flex: 1;
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 800;
+}
+
+.whatsapp {
+  flex: 1;
+  text-align: center;
+  border: 1px solid var(--wa);
+  background: #ecfdf5;
+  color: #16a34a;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+</style>
+<script>
+function go(link) { if(link) window.location.href = link; }
+function searchProducts() {
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const products = document.querySelectorAll(".grid .card");
+  products.forEach(product => {
+    const title = product.querySelector(".title").innerText.toLowerCase();
+    if(title.includes(input)) {
+      product.style.display = "block";
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+</script>
+</head>
+<body>
+
+<header>
+  
+  <div class="logo">FRW Market</div>
+  <div class="nav">
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Phones</option>
+      <option value="phones-samsung.html">Samsung</option>
+      <option value="phones-iphone.html">iPhone</option>
+      <option value="phones-tecno.html">Tecno</option>
+      <option value="phones-infinix.html" selected>Infinix</option>
+      <option value="phones-others.html">Others</option>
+    </select>
+  </div>
+  <a href="index.html" class="back-link">&larr; Back</a>
+  <a class="wa-btn" href="https://wa.me/250795555219?text=Hello%20FRW%20Market,%20I%20want%20Infinix%20Phones" target="_blank">WhatsApp 0795555219</a>
+</header>
+
+<section class="trending">
+  <div class="trending-title">📱 Infinix Phones <span class="badge">Hot Deals</span></div>
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search Infinix phones...">
+  </div>
+
+  <div class="grid">
+    <!-- Example Infinix Phones -->
+    <div class="card phones infinix">
+      <span class="tag">INFINIX</span>
+      <img src="https://images.unsplash.com/photo-1610556057590-2e6d03a3a91b">
+      <div class="card-body">
+        <div class="title">Infinix Note 12</div>
+        <div class="price">150,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Infinix%20Note%2012%20150,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card phones infinix">
+      <span class="tag">INFINIX</span>
+      <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6">
+      <div class="card-body">
+        <div class="title">Infinix Zero 5G</div>
+        <div class="price">220,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Infinix%20Zero%205G%20220,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card phones infinix">
+      <span class="tag">INFINIX</span>
+      <img src="https://images.unsplash.com/photo-1580910051075-7f5d2a7c4fd4">
+      <div class="card-body">
+        <div class="title">Infinix Hot 12</div>
+        <div class="price">140,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Infinix%20Hot%2012%20140,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card phones infinix">
+      <span class="tag">INFINIX</span>
+      <img src="https://images.unsplash.com/photo-1618354690323-2d1e2bdfd9a4">
+      <div class="card-body">
+        <div class="title">Infinix Hot 11</div>
+        <div class="price">130,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Infinix%20Hot%2011%20130,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more Infinix phones as needed -->
+  </div>
+</section>
+
+<footer>© 2026 FRW Market • WhatsApp: 0795555219</footer>
+
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FRW Market | Belts</title>
+
+<style>
+:root{
+  --primary:#ff6a00;
+  --dark:#1f2937;
+  --gray:#6b7280;
+  --bg:#f9fafb;
+  --wa:#25D366;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:var(--bg);color:var(--dark)}
+
+header{
+  background:#fff;
+  padding:16px 24px;
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap
+}
+.logo{font-size:2rem;font-weight:900;color:var(--primary)}
+
+.nav{display:flex;gap:12px;flex-wrap:wrap}
+.select-box{
+  border:1px solid #eee;
+  border-radius:10px;
+  padding:10px 14px;
+  font-weight:800;
+  background:#fff;
+  cursor:pointer
+}
+
+.wa-btn{
+  margin-left:auto;
+  background:var(--wa);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:999px;
+  font-weight:900;
+  text-decoration:none
+}
+
+.trending{
+  max-width:1200px;
+  margin:auto;
+  padding:40px 24px
+}
+.trending-title{
+  font-size:2.2rem;
+  font-weight:900;
+  margin-bottom:20px;
+  display:flex;
+  gap:10px;
+  align-items:center
+}
+.badge{
+  background:var(--primary);
+  color:#fff;
+  padding:6px 14px;
+  border-radius:999px;
+  font-size:.85rem;
+  font-weight:800
+}
+
+.back-link {margin:20px 0;}
+.back-link a{
+  text-decoration:none;
+  color:var(--primary);
+  font-weight:800;
+  background:#fff;
+  padding:8px 14px;
+  border-radius:8px;
+  box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+.back-link a:hover{
+  background:var(--primary);
+  color:#fff;
+}
+
+.search-box{margin-bottom:30px;}
+.search-box input{
+  width:100%;
+  padding:12px 16px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:1rem
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:24px
+}
+.card{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 12px 30px rgba(0,0,0,.1);
+  position:relative;
+}
+.card img{width:100%;height:240px;object-fit:cover}
+
+.tag{
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:#000;
+  color:#fff;
+  padding:6px 12px;
+  font-size:.75rem;
+  font-weight:900;
+  border-radius:10px
+}
+
+.card-body{padding:16px}
+.title{font-weight:900;font-size:1.1rem}
+.price{font-size:1.6rem;font-weight:900;color:var(--primary)}
+.price span{font-size:.85rem;color:#9ca3af}
+
+.actions{
+  display:flex;
+  gap:10px;
+  margin-top:14px
+}
+.details{
+  flex:1;
+  background:var(--primary);
+  color:#fff;
+  border:none;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  cursor:pointer;
+}
+.whatsapp{
+  flex:1;
+  text-align:center;
+  border:1px solid var(--wa);
+  background:#ecfdf5;
+  color:#16a34a;
+  padding:12px;
+  border-radius:10px;
+  font-weight:800;
+  text-decoration:none
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#9ca3af;
+  font-weight:600
+}
+</style>
+
+<script>
+function go(link){if(link) window.location.href = link;}
+
+function searchProducts(){
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const products = document.querySelectorAll(".grid .card");
+
+  products.forEach(product => {
+    const title = product.querySelector(".title").innerText.toLowerCase();
+    product.style.display = title.includes(input) ? "block" : "none";
+  });
+}
+</script>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">FRW Market</div>
+
+  <div class="nav">
+    <select class="select-box" onchange="go(this.value)">
+      <option value="">Accessories</option>
+      <option value="accessories-watches.html">Watches</option>
+      <option value="accessories-bags.html">Bags</option>
+      <option value="accessories-belts.html" selected>Belts</option>
+      <option value="accessories-glasses.html">Glasses</option>
+      <option value="accessories-jewelry.html">Jewelry</option>
+    </select>
+  </div>
+
+  <a class="wa-btn"
+     href="https://wa.me/250795555219?text=Hello%20FRW%20Market,%20I%20want%20to%20order%20a%20belt"
+     target="_blank">
+     WhatsApp 0795555219
+  </a>
+</header>
+
+<section class="trending">
+  <div class="trending-title">
+    👔 Belts Collection
+    <span class="badge">Hot Deals</span>
+  </div>
+
+  <div class="back-link">
+    <a href="index.html">← Back to Home</a>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" onkeyup="searchProducts()" placeholder="Search belts...">
+  </div>
+
+  <div class="grid">
+    <!-- 15 Belt Products -->
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/1fbef7af4cb71fc7af551d779ebabf56.jpg">
+      <div class="card-body">
+        <div class="title">Classic Leather Belt</div>
+        <div class="price">25,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Classic%20Leather%20Belt%2018,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/1c3c0149f19004d6f4608f5506697f70.jpg">
+      <div class="card-body">
+        <div class="title">ice Designer Belt</div>
+        <div class="price">12,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Luxury%20Designer%20Belt%2030,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/2c72bc170eec6785155f65271d663365.jpg">
+      <div class="card-body">
+        <div class="title">Casual Brown Belt</div>
+        <div class="price">5,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Casual%20Brown%20Belt%2015,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional 12 Products -->
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/2fee7baccd91b08c6b562f7580a24e1c.jpg">
+      <div class="card-body">
+        <div class="title">Black Formal Belt</div>
+        <div class="price">3,500 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Black%20Formal%20Belt%2020,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/3d277c694ba26baaa4d0bd25e43ea6c0.jpg">
+      <div class="card-body">
+        <div class="title">Brown Casual Belt</div>
+        <div class="price">14,500 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Brown%20Casual%20Belt%2016,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/3eb0c2d32de80b28323bbf8ccc5af4f4.jpg">
+      <div class="card-body">
+        <div class="title">Elegant red Belt</div>
+        <div class="price">5,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Elegant%20Black%20Belt%2022,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/5dbbb492123d068e51fc047cd33afd2f.jpg">
+      <div class="card-body">
+        <div class="title">Vintage Brown Belt</div>
+        <div class="price">3,500 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Vintage%20Brown%20Belt%2019,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/7dd25b95583199d5b1a559ef430d8ac9.jpg">
+      <div class="card-body">
+        <div class="title">Fashionable ice Belt</div>
+        <div class="price">10,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Fashionable%20Leather%20Belt%2025,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/7fa19c06355e1e3137a50144b52e072d.jpg">
+      <div class="card-body">
+        <div class="title">Double Buckle Belt</div>
+        <div class="price">3,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Double%20Buckle%20Belt%2028,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/14b7b63d729a955b0b008eea247aac53.jpg">
+      <div class="card-body">
+        <div class="title">red ice Stylish Belt</div>
+        <div class="price">8,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Brown%20Stylish%20Belt%2021,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/17be6ae633616aee69541e0e291792a7.jpg">
+      <div class="card-body">
+        <div class="title">Men’s Casual Belt</div>
+        <div class="price">6,500 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Men's%20Casual%20Belt%2017,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/45af5384696e47413048dfc97c759f1d.jpg">
+      <div class="card-body">
+        <div class="title">Designer Brown Belt</div>
+        <div class="price">5,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Designer%20Brown%20Belt%2029,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/56fd9af39c2b95c2a40e7cc12624dd9a.jpg">
+      <div class="card-body">
+        <div class="title">Black Casual Belt</div>
+        <div class="price">7,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Black%20Casual%20Belt%2019,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/64ec167c7dbd9e0144a173ddcb3e89e6.jpg">
+      <div class="card-body">
+        <div class="title">Elegant Brown Belt</div>
+        <div class="price">4,500 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Elegant%20Brown%20Belt%2023,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/087c870a10ce7531ec6f7ce8bdd3f21a.jpg">
+      <div class="card-body">
+        <div class="title">Fashion Leather Belt</div>
+        <div class="price">4,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Fashion%20Leather%20Belt%2026,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/91c16ef33c6b5104cc6942d4564e27da.jpg">
+      <div class="card-body">
+        <div class="title">Elegant red Belt</div>
+        <div class="price">8,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Elegant%20Black%20Belt%2022,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/362d208d64b818917bdb9e2019584ad7.jpg">
+      <div class="card-body">
+        <div class="title">Vintage Brown Belt</div>
+        <div class="price">10,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Vintage%20Brown%20Belt%2019,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/496f791a49cf82d868e9b55ebcedc241.jpg">
+      <div class="card-body">
+        <div class="title">Fashionable ice Belt</div>
+        <div class="price">12,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Fashionable%20Leather%20Belt%2025,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/643afb3bd80a3941c5fc07e164ce88e9 (1).jpg">
+      <div class="card-body">
+        <div class="title">Double Buckle Belt</div>
+        <div class="price">15,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Double%20Buckle%20Belt%2028,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/869dd197f9e83369a0be2401d38e85e5.jpg">
+      <div class="card-body">
+        <div class="title">black Stylish Belt</div>
+        <div class="price">8,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Brown%20Stylish%20Belt%2021,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/6906dfe838d1814f925f5446bfab1fd3.jpg">
+      <div class="card-body">
+        <div class="title">Men’s Casual Belt</div>
+        <div class="price">12,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Men's%20Casual%20Belt%2017,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/20188c76f1d09b773cac25bfe336462d.jpg">
+      <div class="card-body">
+        <div class="title">Designer Brown Belt</div>
+        <div class="price">10,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Designer%20Brown%20Belt%2029,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/649097c1e14c6f0d889aa678f821ffaa.jpg">
+      <div class="card-body">
+        <div class="title">Black Casual Belt</div>
+        <div class="price">18,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Black%20Casual%20Belt%2019,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/c79c95f3a6dfb7e03ee6d371a13b5a04.jpg">
+      <div class="card-body">
+        <div class="title">Elegant Brown Belt</div>
+        <div class="price">8,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Elegant%20Brown%20Belt%2023,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/d7f29b406d6bc3657a546b7efef1d140.jpg">
+      <div class="card-body">
+        <div class="title">Fashion Leather Belt</div>
+        <div class="price">2,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Fashion%20Leather%20Belt%2026,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/20188c76f1d09b773cac25bfe336462d.jpg">
+      <div class="card-body">
+        <div class="title">Designer Brown Belt</div>
+        <div class="price">10,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Designer%20Brown%20Belt%2029,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/e65a96e80f40afd1ade4c247691286ab.jpg">
+      <div class="card-body">
+        <div class="title">Black Casual Belt</div>
+        <div class="price">3,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Black%20Casual%20Belt%2019,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/e9528c38088b0c7e8baa7f94a3c20ca7.jpg">
+      <div class="card-body">
+        <div class="title">Elegant Brown Belt</div>
+        <div class="price">2,500 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Elegant%20Brown%20Belt%2023,500%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card accessories belts">
+      <span class="tag">BELT</span>
+      <img src="accessories/belts/e3816839426dbdbe7b322e3fe8b7a849.jpg">
+      <div class="card-body">
+        <div class="title">Fashion Leather Belt</div>
+        <div class="price">5,000 <span>FRW</span></div>
+        <div class="actions">
+          <button class="details">View Details</button>
+          <a class="whatsapp" href="https://wa.me/250795555219?text=Fashion%20Leather%20Belt%2026,000%20FRW" target="_blank">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</section>
+
+<footer>
+  © 2026 FRW Market • WhatsApp: 0795555219
+</footer>
+
+</body>
+</html>
